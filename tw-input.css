@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sage-50:  #f2f7f2;
+  --color-sage-100: #e0ece0;
+  --color-sage-200: #bed9be;
+  --color-sage-300: #92bd92;
+  --color-sage-400: #639863;
+  --color-sage-500: #4a7c4a;
+  --color-sage-600: #3a623a;
+  --color-sage-700: #2f4f2f;
+  --color-sage-800: #263f26;
+  --color-sage-900: #1e291e;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans:  Lato, system-ui, sans-serif;
+}
