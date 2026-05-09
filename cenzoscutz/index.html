@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cenzo's Cutz | Premium Barbershop | Apeldoorn</title>
+  <meta name="description" content="Cenzo's Cutz — premium barbershop in Apeldoorn. Verse cuts, scherpe fades en strakke baarden. Boek nu via Knipklok.">
+
+  <style>
+    /* ─── RESET ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    /* ─── TOKENS ────────────────────────────────────────── */
+    :root {
+      --black:      #080808;
+      --dark:       #101010;
+      --card:       #181818;
+      --border:     #2a2a2a;
+      --gold:       #c8962a;
+      --gold-light: #e8b84b;
+      --gold-dim:   rgba(200,150,42,.15);
+      --white:      #f2f2f2;
+      --gray:       #888;
+      --gray-light: #bbb;
+      --red:        #c0392b;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ─── TYPOGRAPHY ────────────────────────────────────── */
+    .heading {
+      font-family: Impact, 'Arial Narrow', 'Franklin Gothic Medium', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      line-height: 1;
+    }
+    .label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ─── UTILS ─────────────────────────────────────────── */
+    .gold { color: var(--gold); }
+    .gold-line {
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────  */
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(30px) } to { opacity:1; transform:none } }
+    @keyframes shimmer  { 0%,100% { opacity:1 } 50% { opacity:.6 } }
+    @keyframes spin     { to { transform: rotate(360deg) } }
+    @keyframes barberPole {
+      0%   { background-position: 0 0 }
+      100% { background-position: 0 60px }
+    }
+    @keyframes pulse { 0%,100% { transform:scale(1) } 50% { transform:scale(1.05) } }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.vis { opacity: 1; transform: none; }
+
+    /* ─── NAVBAR ─────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(8,8,8,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 24px; max-width: 1200px; margin: 0 auto;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 40px; height: 40px;
+      background: var(--gold);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .logo-text .name {
+      font-family: Impact, 'Arial Narrow', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: .06em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .logo-text .sub {
+      font-size: .62rem;
+      letter-spacing: .18em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--gray-light);
+      font-size: .85rem; font-weight: 500; letter-spacing: .05em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-book {
+      background: var(--gold);
+      color: var(--black) !important;
+      padding: 10px 22px; border-radius: 4px;
+      font-weight: 700 !important;
+      transition: background .2s, transform .2s !important;
+    }
+    .nav-book:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      color: var(--white); font-size: 1.5rem; padding: 4px;
+    }
+    .mobile-nav {
+      display: none; flex-direction: column; gap: 0;
+      background: var(--dark); border-top: 1px solid var(--border);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      display: block; padding: 16px 24px;
+      text-decoration: none; color: var(--gray-light);
+      border-bottom: 1px solid var(--border);
+      font-size: .9rem; letter-spacing: .05em;
+      transition: color .2s, background .2s;
+    }
+    .mobile-nav a:hover { color: var(--gold); background: rgba(200,150,42,.05); }
+    .mobile-nav .m-book {
+      color: var(--black) !important; background: var(--gold);
+      font-weight: 700; text-align: center;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #080808 0%, #0f0f0f 40%, #181208 100%);
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(200,150,42,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,150,42,.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-glow {
+      position: absolute; border-radius: 50%; pointer-events: none; filter: blur(100px);
+    }
+    .hero-glow-1 { width: 500px; height: 500px; background: rgba(200,150,42,.1); top: -100px; right: -100px; }
+    .hero-glow-2 { width: 400px; height: 400px; background: rgba(200,150,42,.06); bottom: 0; left: -80px; }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      padding: 120px 24px 80px;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+    }
+
+    /* Barber pole decoration */
+    .barber-pole {
+      position: absolute; right: 80px; top: 60px;
+      width: 14px; height: 160px;
+      border-radius: 7px; overflow: hidden;
+      background: repeating-linear-gradient(
+        180deg,
+        #c0392b 0px, #c0392b 10px,
+        #fff 10px, #fff 20px,
+        #1a4fa0 20px, #1a4fa0 30px,
+        #fff 30px, #fff 40px,
+        #c0392b 40px, #c0392b 50px,
+        #fff 50px, #fff 60px
+      );
+      animation: barberPole 2s linear infinite;
+      box-shadow: 0 0 24px rgba(192,57,43,.4);
+      opacity: .7;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold-dim); border: 1px solid rgba(200,150,42,.3);
+      padding: 8px 16px; border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: shimmer 2s ease-in-out infinite; }
+    .badge-text { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+
+    .hero-title {
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      margin-bottom: 8px;
+    }
+    .hero-title .line-gold { color: var(--gold); display: block; }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--gray-light);
+      margin-bottom: 40px; max-width: 460px; line-height: 1.7;
+    }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--black);
+      font-weight: 800; font-size: .9rem; letter-spacing: .08em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 16px 32px; border-radius: 4px;
+      transition: background .25s, transform .25s, box-shadow .25s;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light); transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(200,150,42,.4);
+    }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1.5px solid var(--border); color: var(--gray-light);
+      font-weight: 600; font-size: .9rem; letter-spacing: .06em;
+      text-decoration: none; padding: 15px 28px; border-radius: 4px;
+      transition: border-color .25s, color .25s, transform .25s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 56px;
+      padding-top: 40px; border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: Impact, sans-serif; font-size: 2.5rem;
+      color: var(--gold); letter-spacing: .02em;
+    }
+    .stat-label { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gray); margin-top: 2px; }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%; max-width: 380px;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+    .hero-avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: linear-gradient(135deg, #2a1f0a, #4a3520);
+      margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 30px rgba(200,150,42,.3);
+    }
+    .hero-card-name {
+      font-family: Impact, sans-serif; font-size: 1.8rem;
+      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px;
+    }
+    .hero-card-role { color: var(--gold); font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; }
+    .hero-card-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0;
+    }
+    .tag {
+      background: rgba(200,150,42,.1); border: 1px solid rgba(200,150,42,.2);
+      color: var(--gold-light); font-size: .72rem; letter-spacing: .1em;
+      text-transform: uppercase; padding: 5px 12px; border-radius: 100px; font-weight: 600;
+    }
+    .hero-card-social {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      color: var(--gray); font-size: .82rem; margin-top: 16px;
+    }
+
+    /* Floating cards */
+    .float-badge {
+      position: absolute; background: var(--dark);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px 16px; text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,.5);
+    }
+    .float-badge-1 { top: -16px; left: -20px; }
+    .float-badge-2 { bottom: -16px; right: -20px; }
+    .float-num { font-family: Impact, sans-serif; font-size: 1.6rem; color: var(--gold); }
+    .float-lbl { font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
+
+    /* Scissors deco */
+    .scissors-deco {
+      position: absolute; font-size: 4rem; opacity: .05;
+      pointer-events: none; user-select: none;
+    }
+    .scissors-deco-1 { top: 10%; left: 5%; transform: rotate(-30deg); }
+    .scissors-deco-2 { bottom: 15%; right: 8%; transform: rotate(45deg); }
+
+    /* ─── SECTION BASE ───────────────────────────────────── */
+    section { padding: 100px 0; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-title { font-size: clamp(2.4rem, 5vw, 4rem); margin-top: 12px; margin-bottom: 20px; }
+
+    /* ─── ABOUT ──────────────────────────────────────────── */
+    .about { background: var(--dark); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-visual { position: relative; }
+    .about-img-main {
+      background: linear-gradient(135deg, #1a1208, #2a2010, #3a3020);
+      border: 1px solid var(--border); border-radius: 12px;
+      height: 440px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+      position: relative; overflow: hidden;
+    }
+    .about-img-main::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(200,150,42,.08) 0%, transparent 70%);
+    }
+    .about-img-main .big-scissors { font-size: 6rem; opacity: .8; }
+    .about-img-badge {
+      position: absolute; bottom: -20px; right: -16px;
+      background: var(--gold); color: var(--black);
+      padding: 16px 20px; border-radius: 10px;
+      font-family: Impact, sans-serif; text-transform: uppercase; letter-spacing: .05em;
+    }
+    .about-img-badge .num { font-size: 2rem; display: block; line-height: 1; }
+    .about-img-badge .txt { font-size: .7rem; letter-spacing: .1em; opacity: .8; }
+
+    .about-copy .section-title { text-align: left; }
+    .about-lead { font-size: 1.1rem; color: var(--gray-light); line-height: 1.8; margin-bottom: 24px; }
+    .about-body { color: var(--gray); line-height: 1.8; margin-bottom: 36px; }
+
+    .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+    .pillar {
+      background: var(--black); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px;
+    }
+    .pillar-icon { font-size: 1.5rem; margin-bottom: 8px; }
+    .pillar-title { font-weight: 700; font-size: .9rem; margin-bottom: 4px; color: var(--white); }
+    .pillar-text { font-size: .8rem; color: var(--gray); line-height: 1.5; }
+
+    /* ─── SERVICES ───────────────────────────────────────── */
+    .services { background: var(--black); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .service-card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 36px 28px; position: relative; overflow: hidden;
+      transition: border-color .3s, background .3s, transform .3s;
+    }
+    .service-card:hover {
+      border-color: var(--gold); background: #1c1a12;
+      transform: translateY(-4px);
+      z-index: 1;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0); transition: transform .3s; transform-origin: left;
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-icon { font-size: 2rem; margin-bottom: 16px; }
+    .service-name {
+      font-family: Impact, sans-serif; font-size: 1.4rem;
+      text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px;
+    }
+    .service-desc { font-size: .85rem; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
+    .service-price {
+      display: flex; align-items: baseline; gap: 4px;
+    }
+    .price-from { font-size: .72rem; color: var(--gray); text-transform: uppercase; letter-spacing: .08em; }
+    .price-amt {
+      font-family: Impact, sans-serif; font-size: 2rem;
+      color: var(--gold); letter-spacing: .02em;
+    }
+    .price-dur { font-size: .75rem; color: var(--gray); }
+
+    /* Featured service */
+    .service-card.featured {
+      background: linear-gradient(135deg, #1c1a0e, #2a2515);
+      border-color: var(--gold);
+    }
+    .service-card.featured::after { transform: scaleX(1); }
+    .featured-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--gold); color: var(--black);
+      font-size: .65rem; font-weight: 800; letter-spacing: .12em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 100px;
+    }
+
+    /* ─── EXPERIENCE STRIP ───────────────────────────────── */
+    .experience-strip {
+      background: var(--gold);
+      padding: 60px 0;
+    }
+    .strip-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 40px; text-align: center;
+    }
+    .strip-num {
+      font-family: Impact, sans-serif; font-size: 3rem;
+      color: var(--black); letter-spacing: .02em;
+    }
+    .strip-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: rgba(0,0,0,.6); margin-top: 4px;
+    }
+    .strip-divider { width: 1px; background: rgba(0,0,0,.2); margin: 0 auto; display: none; }
+
+    /* ─── GALLERY ────────────────────────────────────────── */
+    .gallery { background: var(--dark); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 200px 200px;
+      gap: 4px;
+    }
+    .gal-item {
+      background: var(--card); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; overflow: hidden; position: relative;
+      transition: transform .3s; cursor: pointer;
+    }
+    .gal-item:hover { transform: scale(1.02); z-index: 1; }
+    .gal-item:hover .gal-overlay { opacity: 1; }
+    .gal-overlay {
+      position: absolute; inset: 0;
+      background: rgba(200,150,42,.15);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .3s;
+      font-size: 1.5rem;
+    }
+    .gal-item.wide { grid-column: span 2; }
+    .gal-item.tall { grid-row: span 2; }
+
+    /* Different background tones */
+    .gal-1 { background: linear-gradient(135deg, #1a1208, #2a1f0a); }
+    .gal-2 { background: linear-gradient(135deg, #0f1520, #1a2535); }
+    .gal-3 { background: linear-gradient(135deg, #1a0f08, #2a1a10); }
+    .gal-4 { background: linear-gradient(135deg, #0a120f, #152018); }
+    .gal-5 { background: linear-gradient(135deg, #1a1208, #2e2510); }
+    .gal-6 { background: linear-gradient(135deg, #120a18, #2a1535); }
+
+    .gallery-cta { text-align: center; margin-top: 40px; }
+    .btn-insta {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #f77737);
+      color: var(--white); font-weight: 700; font-size: .9rem;
+      letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+      padding: 16px 32px; border-radius: 4px;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .btn-insta:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(253,29,29,.3); }
+
+    /* ─── BOOKING ────────────────────────────────────────── */
+    .booking {
+      background: var(--black);
+      position: relative; overflow: hidden;
+    }
+    .booking::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(200,150,42,.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(200,150,42,.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .booking-inner {
+      position: relative; z-index: 1;
+      text-align: center; max-width: 700px; margin: 0 auto;
+    }
+    .booking-title { font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 20px; }
+    .booking-sub { color: var(--gray-light); font-size: 1.1rem; line-height: 1.7; margin-bottom: 48px; }
+    .booking-steps {
+      display: flex; justify-content: center; gap: 0;
+      margin-bottom: 48px;
+    }
+    .step {
+      display: flex; flex-direction: column; align-items: center;
+      flex: 1; max-width: 160px;
+    }
+    .step-num {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--gold-dim); border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: Impact, sans-serif; font-size: 1.2rem; color: var(--gold);
+      margin-bottom: 12px; position: relative;
+    }
+    .step:not(:last-child) .step-num::after {
+      content: '';
+      position: absolute; left: 100%; top: 50%;
+      transform: translateY(-50%);
+      width: 60px; height: 1px;
+      background: var(--border);
+    }
+    .step-label { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); text-align: center; line-height: 1.4; }
+    .btn-book-big {
+      display: inline-flex; align-items: center; gap: 14px;
+      background: var(--gold); color: var(--black);
+      font-weight: 800; font-size: 1rem; letter-spacing: .1em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 20px 48px; border-radius: 4px;
+      transition: background .25s, transform .25s, box-shadow .25s;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .btn-book-big:hover {
+      background: var(--gold-light); transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(200,150,42,.5);
+      animation: none;
+    }
+
+    /* ─── LOCATION ───────────────────────────────────────── */
+    .location { background: var(--dark); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+    .info-block { margin-bottom: 40px; }
+    .info-block:last-child { margin-bottom: 0; }
+    .info-title {
+      font-family: Impact, sans-serif; font-size: 1.1rem;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+    }
+    .info-icon { font-size: 1.1rem; }
+    .info-body { color: var(--gray-light); line-height: 1.9; font-size: .95rem; }
+    .info-body a { color: var(--gold); text-decoration: none; }
+    .info-body a:hover { text-decoration: underline; }
+
+    .hours-table { width: 100%; }
+    .hours-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      font-size: .9rem;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: var(--gray); }
+    .hours-time { color: var(--white); font-weight: 500; }
+    .hours-closed { color: var(--red); font-weight: 600; }
+    .hours-today { background: var(--gold-dim); margin: 0 -12px; padding: 10px 12px; border-radius: 4px; }
+    .hours-today .hours-day { color: var(--gold); font-weight: 600; }
+
+    /* Map placeholder */
+    .map-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; height: 300px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      color: var(--gray); font-size: .9rem; text-align: center;
+      position: relative; overflow: hidden;
+      cursor: pointer; text-decoration: none;
+      transition: border-color .3s;
+    }
+    .map-box:hover { border-color: var(--gold); }
+    .map-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,150,42,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,150,42,.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .map-pin { font-size: 3rem; margin-bottom: 8px; }
+    .map-addr { color: var(--gray-light); font-size: .9rem; line-height: 1.6; }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────── */
+    .testimonials { background: var(--black); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .testi-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px;
+      border-left: 3px solid var(--gold);
+      transition: transform .3s, border-color .3s;
+    }
+    .testi-card:hover { transform: translateY(-4px); }
+    .testi-stars { color: var(--gold); font-size: 1rem; margin-bottom: 16px; letter-spacing: 2px; }
+    .testi-text { color: var(--gray-light); font-size: .9rem; line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .testi-author { font-weight: 700; font-size: .85rem; color: var(--white); }
+    .testi-platform { font-size: .72rem; color: var(--gray); margin-top: 2px; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: #040404; border-top: 1px solid var(--border);
+      padding: 60px 0 32px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .name {
+      font-family: Impact, sans-serif; font-size: 1.8rem;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--white);
+    }
+    .footer-brand .sub { color: var(--gold); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; }
+    .footer-brand p { color: var(--gray); font-size: .85rem; line-height: 1.7; margin-top: 16px; max-width: 280px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+    .social-btn {
+      width: 40px; height: 40px; border-radius: 8px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1.1rem;
+      transition: border-color .2s, background .2s, transform .2s;
+    }
+    .social-btn:hover { border-color: var(--gold); background: var(--gold-dim); transform: translateY(-2px); }
+    .footer-col h4 {
+      font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px; font-weight: 700;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a, .footer-col ul li span {
+      color: var(--gray); font-size: .85rem; text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      color: var(--gray); font-size: .78rem;
+    }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────── */
+    .scroll-top {
+      position: fixed; bottom: 32px; right: 32px; z-index: 99;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--gold); color: var(--black);
+      border: none; cursor: pointer; font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(200,150,42,.4);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .3s, transform .3s;
+    }
+    .scroll-top.visible { opacity: 1; transform: none; }
+    .scroll-top:hover { background: var(--gold-light); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding-top: 100px; }
+      .hero-visual { order: -1; }
+      .hero-card { max-width: 340px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: span 2; }
+      .location-grid { grid-template-columns: 1fr; }
+      .strip-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 72px 0; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gal-item.wide { grid-column: span 2; }
+      .gal-item.tall { grid-row: auto; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: auto; }
+      .booking-steps { flex-direction: column; align-items: center; gap: 20px; }
+      .step:not(:last-child) .step-num::after { display: none; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .about-pillars { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     NAVBAR
+══════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-mark">✂️</div>
+      <div class="logo-text">
+        <div class="name">Cenzo's Cutz</div>
+        <div class="sub">Barbershop · Apeldoorn</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">Over Cenzo</a></li>
+      <li><a href="#services">Diensten</a></li>
+      <li><a href="#gallery">Werk</a></li>
+      <li><a href="#location">Locatie</a></li>
+      <li><a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank" class="nav-book">Boek Nu</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#about"    onclick="closeMenu()">Over Cenzo</a>
+    <a href="#services" onclick="closeMenu()">Diensten & Prijzen</a>
+    <a href="#gallery"  onclick="closeMenu()">Werk & Galerij</a>
+    <a href="#location" onclick="closeMenu()">Locatie & Tijden</a>
+    <a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank" class="m-book">Boek Nu →</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="scissors-deco scissors-deco-1">✂</div>
+  <div class="scissors-deco scissors-deco-2">✂</div>
+
+  <div class="hero-inner">
+    <!-- Text -->
+    <div>
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Nu beschikbaar voor afspraken</span>
+      </div>
+
+      <h1 class="heading hero-title">
+        Verse Cuts.<br>
+        <span class="line-gold">Scherp Look.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Cenzo's Cutz — premium barbershop in Apeldoorn waar precisie, stijl en vakmanschap samenkomen. Elke cut een statement.
+      </p>
+
+      <div class="hero-cta">
+        <a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank" class="btn-primary">
+          ✂ Boek Jouw Afspraak
+        </a>
+        <a href="#services" class="btn-secondary">
+          Bekijk Diensten →
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Jaar ervaring</div>
+        </div>
+        <div>
+          <div class="stat-num">★ 5.0</div>
+          <div class="stat-label">Google rating</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Tevreden klanten</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual card -->
+    <div class="hero-visual">
+      <div class="barber-pole"></div>
+
+      <div class="float-badge float-badge-1">
+        <div class="float-num">✂</div>
+        <div class="float-lbl">Premium Cuts</div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-avatar">💈</div>
+        <div class="hero-card-name">Cenzo</div>
+        <div class="hero-card-role">Master Barber · Apeldoorn</div>
+        <div class="hero-card-tags">
+          <span class="tag">Fade</span>
+          <span class="tag">Beard</span>
+          <span class="tag">Skin Fade</span>
+          <span class="tag">Line-up</span>
+          <span class="tag">Knippen</span>
+        </div>
+        <div class="hero-card-social">
+          📸 @cenzoscutz
+        </div>
+      </div>
+
+      <div class="float-badge float-badge-2">
+        <div class="float-num">💈</div>
+        <div class="float-lbl">Liberty Barbershop</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     ABOUT
+══════════════════════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Visual -->
+      <div class="about-visual reveal">
+        <div class="about-img-main">
+          <div class="big-scissors">✂️</div>
+          <div style="font-size:3rem; opacity:.4">💈</div>
+          <div class="label" style="position:relative;z-index:1">Master Barber</div>
+        </div>
+        <div class="about-img-badge">
+          <span class="num">5+</span>
+          <span class="txt">Jaar<br>Vakmanschap</span>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="about-copy reveal">
+        <div class="label">Over Cenzo</div>
+        <h2 class="heading section-title">De Man<br>Achter de Schaar</h2>
+        <span class="gold-line" style="width:60px; margin-bottom:28px; display:block"></span>
+
+        <p class="about-lead">
+          Vincenzo — beter bekend als Cenzo — is een gepassioneerde barber met een oog voor detail en een liefde voor het vak. Zijn cuts spreken voor zich.
+        </p>
+        <p class="about-body">
+          Werkzaam bij <strong style="color:var(--white)">Liberty Barbershop</strong> in Apeldoorn, brengt Cenzo een unieke combinatie van klassieke barberstechnieken en moderne stijlen. Klanten reizen speciaal naar Apeldoorn voor zijn fades en precision cuts — en dat zegt genoeg.
+        </p>
+        <p class="about-body">
+          Bij Cenzo's Cutz draait het om meer dan alleen een knipbeurt. Het is een ervaring. Van het moment dat je binnenstapt tot de final look — je wordt behandeld met vakmanschap en persoonlijke aandacht.
+        </p>
+
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🎯</div>
+            <div class="pillar-title">Precisie</div>
+            <div class="pillar-text">Elke lijn strak, elke fade vloeiend</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">⚡</div>
+            <div class="pillar-title">Stijl</div>
+            <div class="pillar-text">Modern, trendy en tijdloos</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">💬</div>
+            <div class="pillar-title">Persoonlijk</div>
+            <div class="pillar-text">Jij kiest je look, wij maken het</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">✅</div>
+            <div class="pillar-title">Kwaliteit</div>
+            <div class="pillar-text">Altijd tevreden garantie</div>
+          </div>
+        </div>
+
+        <a href="https://www.instagram.com/cenzoscutz" target="_blank" class="btn-secondary" style="width:fit-content">
+          📸 Volg @cenzoscutz op Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     SERVICES
+══════════════════════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Diensten & Prijzen</div>
+      <h2 class="heading section-title">Wat Cenzo Voor<br>Jou Doet</h2>
+      <span class="gold-line" style="width:60px; margin:0 auto; display:block"></span>
+    </div>
+
+    <div class="services-grid reveal">
+
+      <div class="service-card">
+        <div class="service-icon">✂️</div>
+        <div class="service-name">Knippen</div>
+        <div class="service-desc">Klassieke of moderne knipbeurt op maat. Van short back & sides tot textured crop.</div>
+        <div class="service-price">
+          <span class="price-from">v.a.</span>
+          <span class="price-amt">€18</span>
+          <span class="price-dur">· 30 min</span>
+        </div>
+      </div>
+
+      <div class="service-card featured">
+        <div class="featured-badge">POPULAIR</div>
+        <div class="service-icon">💈</div>
+        <div class="service-name">Fade</div>
+        <div class="service-desc">Skin fade, mid fade of high fade — vloeiend vervagende knippen zoals alleen Cenzo dat kan.</div>
+        <div class="service-price">
+          <span class="price-from">v.a.</span>
+          <span class="price-amt">€22</span>
+          <span class="price-dur">· 40 min</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🪒</div>
+        <div class="service-name">Baard</div>
+        <div class="service-desc">Baard trimmen, shapen en verzorgen. Van strak lijntje tot volle styled beard.</div>
+        <div class="service-price">
+          <span class="price-from">v.a.</span>
+          <span class="price-amt">€12</span>
+          <span class="price-dur">· 20 min</span>
+        </div>
+      </div>
+
+      <div class="service-card featured">
+        <div class="featured-badge">BESTSELLER</div>
+        <div class="service-icon">💎</div>
+        <div class="service-name">Knippen + Baard</div>
+        <div class="service-desc">De complete combo — fade of knipbeurt gecombineerd met een strakke baard. De full package.</div>
+        <div class="service-price">
+          <span class="price-from">v.a.</span>
+          <span class="price-amt">€30</span>
+          <span class="price-dur">· 55 min</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📐</div>
+        <div class="service-name">Line-up</div>
+        <div class="service-desc">Scherpe haarlijnen en contouring voor dat afgewerkte, frisse look tussen knippen door.</div>
+        <div class="service-price">
+          <span class="price-from">v.a.</span>
+          <span class="price-amt">€10</span>
+          <span class="price-dur">· 15 min</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">👦</div>
+        <div class="service-name">Kinderknippen</div>
+        <div class="service-desc">Voor jonge klanten t/m 12 jaar. Rustig, professioneel en in een mum van tijd klaar.</div>
+        <div class="service-price">
+          <span class="price-from">v.a.</span>
+          <span class="price-amt">€15</span>
+          <span class="price-dur">· 25 min</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:40px" class="reveal">
+      <p style="color:var(--gray); font-size:.85rem; margin-bottom:24px">
+        * Prijzen zijn richtprijzen. Exacte prijs bij boeking via Knipklok.
+      </p>
+      <a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank" class="btn-primary">
+        ✂ Plan Jouw Knipbeurt
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     EXPERIENCE STRIP
+══════════════════════════════ -->
+<div class="experience-strip">
+  <div class="container">
+    <div class="strip-grid">
+      <div>
+        <div class="strip-num">500+</div>
+        <div class="strip-label">Tevreden klanten</div>
+      </div>
+      <div>
+        <div class="strip-num">5★</div>
+        <div class="strip-label">Gemiddelde beoordeling</div>
+      </div>
+      <div>
+        <div class="strip-num">6+</div>
+        <div class="strip-label">Stijlen & technieken</div>
+      </div>
+      <div>
+        <div class="strip-num">5+</div>
+        <div class="strip-label">Jaar vakmanschap</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     GALLERY
+══════════════════════════════ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Portfolio & Werk</div>
+      <h2 class="heading section-title">Het Werk<br>Spreekt Voor Zich</h2>
+      <span class="gold-line" style="width:60px; margin:0 auto; display:block"></span>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gal-item gal-1 wide tall">
+        ✂️
+        <div class="gal-overlay">📸</div>
+      </div>
+      <div class="gal-item gal-2">
+        💈
+        <div class="gal-overlay">📸</div>
+      </div>
+      <div class="gal-item gal-3">
+        🪒
+        <div class="gal-overlay">📸</div>
+      </div>
+      <div class="gal-item gal-4">
+        💎
+        <div class="gal-overlay">📸</div>
+      </div>
+      <div class="gal-item gal-5">
+        📐
+        <div class="gal-overlay">📸</div>
+      </div>
+      <div class="gal-item gal-6 wide">
+        🔥
+        <div class="gal-overlay">📸</div>
+      </div>
+    </div>
+
+    <div class="gallery-cta reveal">
+      <a href="https://www.instagram.com/cenzoscutz" target="_blank" class="btn-insta">
+        📸 Meer werk op @cenzoscutz
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     TESTIMONIALS
+══════════════════════════════ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Reviews</div>
+      <h2 class="heading section-title">Wat Klanten<br>Zeggen</h2>
+      <span class="gold-line" style="width:60px; margin:0 auto; display:block"></span>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Ik rij speciaal vanuit Amsterdam naar Apeldoorn voor Cenzo. Niemand die zo goed kan faden als hij. Elke keer weer perfect!"</p>
+        <div class="testi-author">Jayden R.</div>
+        <div class="testi-platform">Knipklok · Verified</div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.1s">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"De meest vriendelijke en vaardige barber die ik ooit heb gehad. Cenzo luistert goed naar wat je wil en levert altijd meer dan verwacht."</p>
+        <div class="testi-author">Mohammed A.</div>
+        <div class="testi-platform">Google · Verified</div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.2s">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Beste barbershop in Apeldoorn. Strakke fade, goede prijs en altijd een gezellige sfeer. Al 2 jaar vaste klant!"</p>
+        <div class="testi-author">Kevin T.</div>
+        <div class="testi-platform">Knipklok · Verified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     BOOKING CTA
+══════════════════════════════ -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-inner reveal">
+      <div class="label">Online Boeken</div>
+      <h2 class="heading booking-title">Klaar Voor<br><span class="gold">Jouw Cut?</span></h2>
+      <p class="booking-sub">Boek snel en eenvoudig online via Knipklok. Geen wachttijden, geen gedoe — jij kiest je moment.</p>
+
+      <div class="booking-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-label">Kies je dienst</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-label">Kies datum & tijd</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-label">Bevestig boeking</div>
+        </div>
+      </div>
+
+      <a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank" class="btn-book-big">
+        ✂ Boek Nu via Knipklok
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     LOCATION & HOURS
+══════════════════════════════ -->
+<section class="location" id="location">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Locatie & Openingstijden</div>
+      <h2 class="heading section-title">Kom Langs Bij<br>Liberty Barbershop</h2>
+      <span class="gold-line" style="width:60px; margin:0 auto; display:block"></span>
+    </div>
+
+    <div class="location-grid">
+      <!-- Info -->
+      <div class="reveal">
+        <div class="info-block">
+          <div class="info-title"><span class="info-icon">📍</span> Adres</div>
+          <div class="info-body">
+            Korenstraat 120<br>
+            7311 LP Apeldoorn<br>
+            <a href="https://maps.google.com/?q=Korenstraat+120,+7311+LP+Apeldoorn" target="_blank">Open in Google Maps →</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-title"><span class="info-icon">📱</span> Social & Booking</div>
+          <div class="info-body">
+            Instagram: <a href="https://www.instagram.com/cenzoscutz" target="_blank">@cenzoscutz</a><br>
+            Boeken: <a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank">knipklok.nl/kapperszaak/cenzos-cutz</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-title"><span class="info-icon">🕐</span> Openingstijden</div>
+          <div class="hours-table">
+            <div class="hours-row"><span class="hours-day">Maandag</span><span class="hours-closed">Gesloten</span></div>
+            <div class="hours-row hours-today"><span class="hours-day">Dinsdag</span><span class="hours-time">10:00 – 19:00</span></div>
+            <div class="hours-row"><span class="hours-day">Woensdag</span><span class="hours-time">10:00 – 19:00</span></div>
+            <div class="hours-row"><span class="hours-day">Donderdag</span><span class="hours-time">10:00 – 19:00</span></div>
+            <div class="hours-row"><span class="hours-day">Vrijdag</span><span class="hours-time">10:00 – 19:00</span></div>
+            <div class="hours-row"><span class="hours-day">Zaterdag</span><span class="hours-time">09:00 – 17:00</span></div>
+            <div class="hours-row"><span class="hours-day">Zondag</span><span class="hours-closed">Gesloten</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="reveal" style="transition-delay:.15s">
+        <a href="https://maps.google.com/?q=Korenstraat+120,+7311+LP+Apeldoorn" target="_blank" class="map-box">
+          <div class="map-pin">📍</div>
+          <div class="heading" style="font-size:1.2rem; letter-spacing:.06em; position:relative; z-index:1">
+            Liberty Barbershop
+          </div>
+          <div class="map-addr" style="position:relative; z-index:1">
+            Korenstraat 120<br>7311 LP Apeldoorn
+          </div>
+          <div style="color:var(--gold); font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; margin-top:12px; position:relative; z-index:1">
+            Open in Maps →
+          </div>
+        </a>
+
+        <div style="margin-top:20px; padding:20px; background:var(--card); border:1px solid var(--border); border-radius:10px; border-left: 3px solid var(--gold);">
+          <p style="color:var(--gray); font-size:.85rem; line-height:1.7;">
+            🚗 <strong style="color:var(--white)">Parkeren:</strong> Vrij parkeren beschikbaar in de buurt van Korenstraat<br>
+            🚌 <strong style="color:var(--white)">OV:</strong> Goed bereikbaar met het openbaar vervoer vanuit Apeldoorn Centrum
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="name">Cenzo's Cutz</div>
+        <div class="sub">Premium Barbershop · Apeldoorn</div>
+        <p>Verse cuts, scherpe fades en strakke baarden. Cenzo's Cutz — waar vakmanschap en stijl samenkomen in het hart van Apeldoorn.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/cenzoscutz" target="_blank" class="social-btn" title="Instagram">📸</a>
+          <a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank" class="social-btn" title="Boek online">✂️</a>
+          <a href="https://maps.google.com/?q=Korenstraat+120,+7311+LP+Apeldoorn" target="_blank" class="social-btn" title="Locatie">📍</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigatie</h4>
+        <ul>
+          <li><a href="#about">Over Cenzo</a></li>
+          <li><a href="#services">Diensten & Prijzen</a></li>
+          <li><a href="#gallery">Portfolio</a></li>
+          <li><a href="#location">Locatie & Tijden</a></li>
+          <li><a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank">Online Boeken</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><span>📍 Korenstraat 120, Apeldoorn</span></li>
+          <li><a href="https://www.instagram.com/cenzoscutz" target="_blank">📸 @cenzoscutz</a></li>
+          <li><a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank">✂ Boek via Knipklok</a></li>
+          <li><a href="https://liberty-barbershop.nl" target="_blank">🏪 Liberty Barbershop</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2024 Cenzo's Cutz — Alle rechten voorbehouden</span>
+      <span>Made with ✂️ in Apeldoorn | <a href="https://knipklok.nl/kapperszaak/cenzos-cutz" target="_blank">Boek nu</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll naar boven">↑</button>
+
+
+<script>
+  /* Mobile menu */
+  function toggleMenu() {
+    const m = document.getElementById('mobile-nav');
+    m.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobile-nav').classList.remove('open');
+  }
+
+  /* Scroll reveal */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('vis'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* Scroll-to-top visibility */
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+</script>
+</body>
+</html>
