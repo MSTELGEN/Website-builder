@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cattery Sage | British Shorthair Fokker | Apeldoorn</title>
+    <meta name="description" content="Cattery Sage in Apeldoorn — fokkers van prachtige British Shorthair kittens. Familie Hagen fokt met liefde en passie voor het ras.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50:  '#f2f7f2',
+                            100: '#e0ece0',
+                            200: '#bed9be',
+                            300: '#92bd92',
+                            400: '#639863',
+                            500: '#4a7c4a',
+                            600: '#3a623a',
+                            700: '#2f4f2f',
+                            800: '#263f26',
+                            900: '#1e291e',
+                        },
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans:  ['Lato', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --cream:      #FAF6F0;
+            --gold:       #C9A96E;
+            --gold-light: #E8D5A3;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream);
+            color: #2c2c2c;
+            overflow-x: hidden;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar-blur {
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 1px;
+            background: var(--gold);
+            transition: width .3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* ── HERO ── */
+        .hero-bg {
+            background: linear-gradient(145deg,
+                #1a2e1a 0%,
+                #2f4f2f 35%,
+                #3a6b3a 65%,
+                #5a8a5a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 72% 48%, rgba(201,169,110,.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 15% 75%, rgba(146,189,146,.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        /* ── GOLD LINE ── */
+        .gold-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* ── GOLD TEXT ── */
+        .gold-text {
+            background: linear-gradient(135deg, #C9A96E, #f0d890, #C9A96E);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+        @keyframes shimmer {
+            0%   { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* ── BUTTONS ── */
+        .btn-primary {
+            background: linear-gradient(135deg, #4a7c4a, #2f4f2f);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(47,79,47,.45);
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #C9A96E, #a87a40);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(201,169,110,.45);
+        }
+        .btn-outline-white {
+            border: 1.5px solid rgba(255,255,255,.35);
+            transition: background .25s ease, transform .25s ease;
+        }
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,.1);
+            transform: translateY(-2px);
+        }
+
+        /* ── CARDS ── */
+        .card-hover {
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 44px rgba(47,79,47,.14);
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(-14px); }
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        .anim-up            { animation: fadeInUp .8s ease both; }
+        .anim-up.d1         { animation-delay: .15s; }
+        .anim-up.d2         { animation-delay: .30s; }
+        .anim-up.d3         { animation-delay: .45s; }
+        .anim-up.d4         { animation-delay: .60s; }
+        .anim-float         { animation: float 6s ease-in-out infinite; }
+        .anim-float-slow    { animation: float 9s ease-in-out infinite; }
+        .anim-spin-slow     { animation: spin-slow 18s linear infinite; }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── IMAGE PLACEHOLDERS ── */
+        .img-blue-cat   { background: linear-gradient(135deg, #8fa8c8, #5a7a9a, #3a5a7a); }
+        .img-golden-cat { background: linear-gradient(135deg, #d4c090, #b89860, #8a6a30); }
+        .img-silver-cat { background: linear-gradient(135deg, #c0c0d0, #9898b0, #707088); }
+        .img-cream-cat  { background: linear-gradient(135deg, #e8d8b8, #c8b888, #a89868); }
+        .img-hero-cat   { background: linear-gradient(145deg, #3a5f3a, #5a8a5a, #7aaa7a); }
+
+        /* ── GALLERY GRID ── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 220px 180px;
+            gap: 14px;
+        }
+        .gal-wide { grid-column: span 2; }
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+            .gal-wide { grid-column: span 2; height: 200px; }
+        }
+
+        /* ── TESTIMONIAL ── */
+        .testimonial-card { border-left: 3px solid var(--gold); }
+
+        /* ── BADGE RING ── */
+        .badge-ring {
+            border: 2px dashed rgba(201,169,110,.45);
+            border-radius: 50%;
+        }
+
+        /* ── MOBILE MENU ── */
+        .mobile-menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+        }
+        .mobile-menu-content.open {
+            max-height: 400px;
+        }
+
+        /* ── SCROLL OFFSET ── */
+        [id] { scroll-margin-top: 84px; }
+
+        /* ── FOCUS RING ── */
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #4a7c4a;
+            box-shadow: 0 0 0 3px rgba(74,124,74,.15);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     NAVBAR
+════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 navbar-blur bg-white/90 border-b border-sage-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-full bg-sage-700 flex items-center justify-center group-hover:bg-sage-600 transition-colors shadow-sm">
+                <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+                    <circle cx="10" cy="9"  r="3.5" fill="#e0ece0" opacity=".8"/>
+                    <circle cx="20" cy="9"  r="3.5" fill="#e0ece0" opacity=".8"/>
+                    <ellipse cx="15" cy="20" rx="9" ry="7.5" fill="#e0ece0" opacity=".65"/>
+                    <circle cx="12" cy="17" r="1.2" fill="#1e291e"/>
+                    <circle cx="18" cy="17" r="1.2" fill="#1e291e"/>
+                    <path d="M12 21.5c0 0 1.5 1.8 3 1.8s3-1.8 3-1.8" stroke="#1e291e" stroke-width="1.1" stroke-linecap="round"/>
+                    <path d="M8 7 L5 4M22 7 L25 4" stroke="#e0ece0" stroke-width="1.3" stroke-linecap="round" opacity=".7"/>
+                </svg>
+            </div>
+            <div>
+                <div class="font-serif text-lg font-semibold text-sage-800 leading-tight">Cattery Sage</div>
+                <div class="text-xs text-sage-500 tracking-widest uppercase">British Shorthair · Apeldoorn</div>
+            </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#over-ons" class="nav-link text-sm font-medium text-sage-700 hover:text-sage-900 transition-colors">Over Ons</a>
+            <a href="#ras"      class="nav-link text-sm font-medium text-sage-700 hover:text-sage-900 transition-colors">Het Ras</a>
+            <a href="#kittens"  class="nav-link text-sm font-medium text-sage-700 hover:text-sage-900 transition-colors">Kittens</a>
+            <a href="#galerij"  class="nav-link text-sm font-medium text-sage-700 hover:text-sage-900 transition-colors">Galerij</a>
+            <a href="#contact"  class="btn-primary text-white text-sm font-medium px-6 py-2.5 rounded-full shadow-sm">Contact</a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="menu-btn" onclick="toggleMenu()" class="md:hidden text-sage-700 p-2 rounded-lg hover:bg-sage-50 transition-colors" aria-label="Menu">
+            <i id="menu-icon" class="fas fa-bars text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu-content md:hidden bg-white/95 border-t border-sage-100">
+        <div class="px-6 py-5 flex flex-col gap-4">
+            <a href="#over-ons" onclick="closeMenu()" class="text-sage-700 font-medium py-1.5 border-b border-sage-50">Over Ons</a>
+            <a href="#ras"      onclick="closeMenu()" class="text-sage-700 font-medium py-1.5 border-b border-sage-50">Het Ras</a>
+            <a href="#kittens"  onclick="closeMenu()" class="text-sage-700 font-medium py-1.5 border-b border-sage-50">Kittens</a>
+            <a href="#galerij"  onclick="closeMenu()" class="text-sage-700 font-medium py-1.5 border-b border-sage-50">Galerij</a>
+            <a href="#contact"  onclick="closeMenu()" class="btn-primary text-white font-medium py-3.5 px-6 rounded-full text-center mt-1">Contact</a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ════════════════════════════════
+     HERO
+════════════════════════════════ -->
+<section class="hero-bg min-h-screen flex items-center pt-20 pb-16 relative">
+
+    <!-- Ambient glows -->
+    <div class="hero-glow w-96 h-96 bg-yellow-400/10 top-10 right-10 opacity-40"></div>
+    <div class="hero-glow w-72 h-72 bg-sage-300/20 bottom-20 left-5 opacity-30"></div>
+
+    <!-- Floating paws -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none select-none">
+        <span class="absolute top-1/4  right-[18%] text-white/5 text-8xl anim-float">🐾</span>
+        <span class="absolute top-2/3  right-[38%] text-white/5 text-6xl anim-float-slow" style="animation-delay:.8s">🐾</span>
+        <span class="absolute top-[45%] left-[12%] text-white/5 text-5xl anim-float" style="animation-delay:1.6s">🐾</span>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 w-full">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            <!-- Text column -->
+            <div class="text-white">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm mb-7 anim-up">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-white/85">Kittens soms beschikbaar</span>
+                </div>
+
+                <h1 class="font-serif text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.1] mb-7 anim-up d1">
+                    Waar Liefde<br>
+                    <em class="gold-text not-italic">Fokkerij Wordt</em>
+                </h1>
+
+                <p class="text-white/75 text-lg md:text-xl leading-relaxed mb-9 max-w-md anim-up d2">
+                    Welkom bij Cattery Sage in Apeldoorn — fokkers van prachtige British Shorthair kittens met toewijding, passie en liefde voor het ras.
+                </p>
+
+                <div class="flex flex-wrap gap-4 anim-up d3">
+                    <a href="#kittens" class="btn-gold px-9 py-4 rounded-full text-white font-semibold text-sm tracking-wide shadow-lg">
+                        Bekijk Kittens
+                    </a>
+                    <a href="#over-ons" class="btn-outline-white px-9 py-4 rounded-full text-white font-semibold text-sm tracking-wide">
+                        Over Ons
+                    </a>
+                </div>
+
+                <!-- Stats bar -->
+                <div class="grid grid-cols-3 gap-6 mt-14 pt-8 border-t border-white/15 anim-up d4">
+                    <div>
+                        <div class="font-serif text-4xl font-bold text-white">10<span class="text-2xl text-white/60">+</span></div>
+                        <div class="text-white/55 text-xs mt-1 uppercase tracking-wide">Jaar Ervaring</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-4xl font-bold text-white">100<span class="text-2xl text-white/60">+</span></div>
+                        <div class="text-white/55 text-xs mt-1 uppercase tracking-wide">Kittens Geplaatst</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-4xl font-bold" style="color:var(--gold)">❤️</div>
+                        <div class="text-white/55 text-xs mt-1 uppercase tracking-wide">Met Passie</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual column -->
+            <div class="hidden md:flex justify-center items-center relative">
+                <div class="relative w-[420px] h-[420px]">
+
+                    <!-- Spinning dashed ring -->
+                    <div class="absolute inset-0 badge-ring anim-spin-slow"></div>
+
+                    <!-- Main circle -->
+                    <div class="absolute inset-6 rounded-full img-hero-cat shadow-2xl flex flex-col items-center justify-center overflow-hidden">
+                        <div class="text-center p-8">
+                            <div class="text-[7rem] leading-none mb-2 drop-shadow-lg">🐱</div>
+                            <div class="font-serif italic text-white/70 text-sm">British Shorthair</div>
+                        </div>
+                    </div>
+
+                    <!-- Floating badges -->
+                    <div class="absolute -bottom-5 left-4 bg-white rounded-2xl px-5 py-3 shadow-xl flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-sage-100 flex items-center justify-center text-sage-700">
+                            <i class="fas fa-certificate text-sm"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sage-800 text-sm leading-tight">Geregistreerd</div>
+                            <div class="text-sage-500 text-xs">Stamboom & Papieren</div>
+                        </div>
+                    </div>
+
+                    <div class="absolute -top-5 right-4 bg-white rounded-2xl px-5 py-3 shadow-xl flex items-center gap-3">
+                        <div class="text-2xl">🏆</div>
+                        <div>
+                            <div class="font-semibold text-sage-800 text-sm leading-tight">Fokker</div>
+                            <div class="text-sage-500 text-xs">Apeldoorn NL</div>
+                        </div>
+                    </div>
+
+                    <!-- Small accent dot -->
+                    <div class="absolute top-1/2 -right-3 w-6 h-6 rounded-full shadow-lg" style="background:var(--gold);"></div>
+                    <div class="absolute top-1/2 -left-3 w-4 h-4 rounded-full shadow-lg bg-sage-300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/35 animate-bounce">
+        <i class="fas fa-chevron-down text-xl"></i>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     GOLD DIVIDER
+════════════════════════════════ -->
+<div class="gold-line"></div>
+
+
+<!-- ════════════════════════════════
+     ABOUT
+════════════════════════════════ -->
+<section id="over-ons" class="py-28" style="background-color:var(--cream)">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+            <!-- Image mosaic -->
+            <div class="reveal relative">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="img-blue-cat rounded-3xl h-64 flex items-center justify-center shadow-lg text-7xl">😺</div>
+                    <div class="img-golden-cat rounded-3xl h-64 mt-10 flex items-center justify-center shadow-lg text-7xl">🐈</div>
+                    <div class="img-silver-cat rounded-3xl h-52 flex items-center justify-center shadow-lg text-6xl">🐾</div>
+                    <div class="img-cream-cat rounded-3xl h-52 -mt-4 flex items-center justify-center shadow-lg text-6xl">💚</div>
+                </div>
+                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap btn-primary text-white text-sm font-semibold px-7 py-3 rounded-full shadow-xl">
+                    Familie Hagen · Apeldoorn
+                </div>
+            </div>
+
+            <!-- Copy -->
+            <div class="reveal">
+                <div class="text-sage-500 text-xs tracking-widest uppercase font-bold mb-3">Over Ons</div>
+                <h2 class="font-serif text-4xl md:text-[2.75rem] font-bold text-sage-900 leading-tight mb-5">
+                    Een Familie<br>met <em>Passie</em> voor Katten
+                </h2>
+                <div class="gold-line w-16 mb-8"></div>
+
+                <p class="text-gray-600 text-lg leading-relaxed mb-5">
+                    Wij zijn <strong class="text-sage-800">Sanne, Gertjan en Jilles Hagen</strong> — een liefhebbende familie uit Apeldoorn die al jarenlang met hart en ziel British Shorthair kittens fokt.
+                </p>
+                <p class="text-gray-500 leading-relaxed mb-9">
+                    Elke kitten groeit op als een volwaardig lid van ons gezin, gesocialiseerd in een warme thuisomgeving. Ze zijn gewend aan kinderen en andere huisdieren, en worden met alle liefde grootgebracht voordat ze naar hun nieuwe thuis gaan.
+                </p>
+
+                <!-- Feature grid -->
+                <div class="grid grid-cols-2 gap-4 mb-10">
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-heart text-sage-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sage-800 text-sm">Met Liefde Gefokt</div>
+                            <div class="text-gray-400 text-xs mt-0.5">Persoonlijke aandacht voor elke kitten</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield-alt text-sage-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sage-800 text-sm">Gezondheidsgarantie</div>
+                            <div class="text-gray-400 text-xs mt-0.5">Volledig getest & gevaccineerd</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-home text-sage-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sage-800 text-sm">Thuis Opgegroeid</div>
+                            <div class="text-gray-400 text-xs mt-0.5">Gesocialiseerd in gezinsomgeving</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-certificate text-sage-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sage-800 text-sm">Stamboom Papieren</div>
+                            <div class="text-gray-400 text-xs mt-0.5">Officieel geregistreerd</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#contact" class="inline-flex items-center gap-2 btn-primary text-white px-8 py-4 rounded-full font-semibold text-sm shadow-md">
+                    Neem Contact Op
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     BREED
+════════════════════════════════ -->
+<section id="ras" class="py-28 bg-sage-50">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="text-center mb-16 reveal">
+            <div class="text-sage-500 text-xs tracking-widest uppercase font-bold mb-3">Het Ras</div>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-sage-900 mb-4">
+                De <em>British Shorthair</em>
+            </h2>
+            <div class="gold-line w-20 mx-auto mb-6"></div>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+                Een van de oudste en meest geliefde kattenrassen — bekend om hun rustige karakter, pluizige vacht en ronde schattige gezichtje.
+            </p>
+        </div>
+
+        <!-- Trait cards -->
+        <div class="grid md:grid-cols-3 gap-8 mb-14">
+            <div class="bg-white rounded-3xl p-9 shadow-sm card-hover reveal text-center">
+                <div class="w-16 h-16 rounded-2xl bg-sage-50 flex items-center justify-center mx-auto mb-6 text-4xl shadow-inner">😌</div>
+                <h3 class="font-serif text-xl font-bold text-sage-900 mb-3">Kalm & Evenwichtig</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    De British Shorthair staat bekend om zijn vriendelijke, rustige karakter. Ze zijn zelfstandig maar ook gezellig — perfect voor gezinnen met kinderen.
+                </p>
+            </div>
+
+            <div class="bg-sage-700 rounded-3xl p-9 shadow-xl card-hover reveal text-center" style="animation-delay:.1s">
+                <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6 text-4xl">🧸</div>
+                <h3 class="font-serif text-xl font-bold text-white mb-3">Pluizig Teddy Beer</h3>
+                <p class="text-white/60 text-sm leading-relaxed">
+                    Met hun dichte zachte vacht en stevig compact lichaam zijn het echte knuffelkatten. Ze voelen heerlijk aan om te aaien en zijn een lust voor het oog.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-9 shadow-sm card-hover reveal text-center" style="animation-delay:.2s">
+                <div class="w-16 h-16 rounded-2xl bg-sage-50 flex items-center justify-center mx-auto mb-6 text-4xl shadow-inner">💪</div>
+                <h3 class="font-serif text-xl font-bold text-sage-900 mb-3">Gezond & Robuust</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Een van de gezondste rassen met een levensduur van 12–17 jaar. Weinig gezondheidsproblemen bij verantwoorde fokkers.
+                </p>
+            </div>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm reveal">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-sage-100">
+                <div class="px-4">
+                    <div class="font-serif text-4xl font-bold text-sage-700 mb-1">12–17</div>
+                    <div class="text-gray-400 text-sm">Jaar levensduur</div>
+                </div>
+                <div class="px-4">
+                    <div class="font-serif text-4xl font-bold text-sage-700 mb-1">4–8 kg</div>
+                    <div class="text-gray-400 text-sm">Gemiddeld gewicht</div>
+                </div>
+                <div class="px-4">
+                    <div class="font-serif text-4xl font-bold text-sage-700 mb-1">20+</div>
+                    <div class="text-gray-400 text-sm">Kleurvarianten</div>
+                </div>
+                <div class="px-4">
+                    <div class="font-serif text-4xl font-bold text-sage-700 mb-1">★★★★★</div>
+                    <div class="text-gray-400 text-sm">Gezinskat score</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     KITTENS
+════════════════════════════════ -->
+<section id="kittens" class="py-28" style="background-color:var(--cream)">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="text-center mb-16 reveal">
+            <div class="text-sage-500 text-xs tracking-widest uppercase font-bold mb-3">Beschikbaar</div>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-sage-900 mb-4">Onze <em>Kittens</em></h2>
+            <div class="gold-line w-20 mx-auto mb-6"></div>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+                Onze kittens worden met veel liefde grootgebracht. Neem contact op voor de actuele beschikbaarheid.
+            </p>
+        </div>
+
+        <!-- Kitten cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Card 1 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover reveal">
+                <div class="img-blue-cat h-56 flex items-center justify-center relative">
+                    <span class="text-8xl drop-shadow-lg">🐱</span>
+                    <span class="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow">Beschikbaar</span>
+                </div>
+                <div class="p-7">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-sage-900">Blue Boy</h3>
+                            <p class="text-sage-500 text-sm">British Shorthair · Reu</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs text-gray-400">Kleur</div>
+                            <div class="text-sm font-bold text-sage-700">Blue</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-sage-50 text-sage-700 px-3 py-1 rounded-full font-medium">Gevaccineerd</span>
+                        <span class="text-xs bg-sage-50 text-sage-700 px-3 py-1 rounded-full font-medium">Gechipt</span>
+                        <span class="text-xs bg-sage-50 text-sage-700 px-3 py-1 rounded-full font-medium">Stamboom</span>
+                    </div>
+                    <a href="#contact" class="block text-center btn-primary text-white py-3.5 rounded-2xl text-sm font-semibold">
+                        Meer Informatie
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover reveal" style="animation-delay:.1s">
+                <div class="img-golden-cat h-56 flex items-center justify-center relative">
+                    <span class="text-8xl drop-shadow-lg">😸</span>
+                    <span class="absolute top-4 right-4 bg-amber-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow">Gereserveerd</span>
+                </div>
+                <div class="p-7">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-sage-900">Golden Girl</h3>
+                            <p class="text-sage-500 text-sm">British Shorthair · Pop</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs text-gray-400">Kleur</div>
+                            <div class="text-sm font-bold text-sage-700">Golden</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-sage-50 text-sage-700 px-3 py-1 rounded-full font-medium">Gevaccineerd</span>
+                        <span class="text-xs bg-sage-50 text-sage-700 px-3 py-1 rounded-full font-medium">Gechipt</span>
+                        <span class="text-xs bg-sage-50 text-sage-700 px-3 py-1 rounded-full font-medium">Stamboom</span>
+                    </div>
+                    <a href="#contact" class="block text-center btn-primary text-white py-3.5 rounded-2xl text-sm font-semibold">
+                        Meer Informatie
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3 — Waitlist -->
+            <div class="bg-sage-800 rounded-3xl overflow-hidden shadow-xl card-hover reveal" style="animation-delay:.2s">
+                <div class="bg-sage-700 h-56 flex flex-col items-center justify-center gap-3">
+                    <div class="text-7xl">📋</div>
+                    <div class="text-sage-300 text-sm font-medium">Aankomende Nestjes</div>
+                </div>
+                <div class="p-7">
+                    <h3 class="font-serif text-xl font-bold text-white mb-2">Wachtlijst</h3>
+                    <p class="text-sage-300 text-sm leading-relaxed mb-5">
+                        Wil je graag een British Shorthair van Cattery Sage? Meld je aan voor onze wachtlijst en we nemen snel contact op!
+                    </p>
+                    <a href="#contact" class="block text-center btn-gold text-white py-3.5 rounded-2xl text-sm font-semibold shadow-md">
+                        Aanmelden Wachtlijst
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info banner -->
+        <div class="mt-10 flex items-start gap-5 bg-sage-50 border border-sage-200 rounded-2xl p-6 reveal">
+            <div class="w-10 h-10 rounded-full bg-sage-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-info text-sage-700 text-sm"></i>
+            </div>
+            <div>
+                <div class="font-semibold text-sage-800 mb-1">Kittens worden zorgvuldig geplaatst</div>
+                <p class="text-sage-600 text-sm leading-relaxed">
+                    Wij plaatsen onze kittens enkel in liefdevolle en geschikte huizen. Voor meer informatie over beschikbaarheid, neem gerust contact op via telefoon of e-mail.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     GALLERY
+════════════════════════════════ -->
+<section id="galerij" class="py-28" style="background:linear-gradient(145deg,#1a2e1a,#2f4f2f)">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="text-center mb-14 reveal">
+            <div class="text-sage-300 text-xs tracking-widest uppercase font-bold mb-3">Galerij</div>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Onze <em>Mooie</em> Katten</h2>
+            <div class="gold-line w-20 mx-auto mb-5"></div>
+            <p class="text-white/50 text-lg max-w-xl mx-auto">Een kijkje in het leven bij Cattery Sage</p>
+        </div>
+
+        <!-- Grid -->
+        <div class="gallery-grid reveal">
+            <div class="gal-wide img-blue-cat  rounded-2xl flex items-center justify-center text-[7rem] opacity-75 shadow-lg overflow-hidden">🐱</div>
+            <div class="img-golden-cat rounded-2xl flex items-center justify-center text-[5rem] opacity-75 shadow-lg overflow-hidden">😺</div>
+            <div class="img-silver-cat rounded-2xl flex items-center justify-center text-[5rem] opacity-75 shadow-lg overflow-hidden">🐈</div>
+            <div class="img-cream-cat  rounded-2xl flex items-center justify-center text-[5rem] opacity-75 shadow-lg overflow-hidden">🐾</div>
+            <div class="gal-wide rounded-2xl flex items-center justify-center text-[5rem] opacity-75 shadow-lg overflow-hidden" style="background:linear-gradient(135deg,#3a5f3a,#5a8a5a)">💚</div>
+        </div>
+
+        <!-- Facebook CTA -->
+        <div class="text-center mt-10 reveal">
+            <a href="https://www.facebook.com/CatterySage/" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-3 bg-white/10 hover:bg-white/18 border border-white/20 text-white px-8 py-4 rounded-full transition-all font-medium text-sm">
+                <i class="fab fa-facebook text-blue-400 text-lg"></i>
+                Meer foto's op onze Facebook pagina
+                <i class="fas fa-external-link-alt text-xs opacity-40"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     WHY CHOOSE US
+════════════════════════════════ -->
+<section class="py-28" style="background-color:var(--cream)">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="text-center mb-16 reveal">
+            <div class="text-sage-500 text-xs tracking-widest uppercase font-bold mb-3">Waarom Ons</div>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-sage-900 mb-4">
+                Wat <em>Cattery Sage</em><br>Bijzonder Maakt
+            </h2>
+            <div class="gold-line w-20 mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl p-8 shadow-sm card-hover reveal">
+                <div class="w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center mb-5 text-sage-600"><i class="fas fa-home"></i></div>
+                <h3 class="font-serif text-lg font-bold text-sage-900 mb-3">Thuis Gesocialiseerd</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Onze kittens groeien op in ons gezin, gewend aan kinderen, honden en dagelijkse geluiden. Ze zijn klaar voor hun nieuwe avontuur.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm card-hover reveal" style="animation-delay:.1s">
+                <div class="w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center mb-5 text-sage-600"><i class="fas fa-syringe"></i></div>
+                <h3 class="font-serif text-lg font-bold text-sage-900 mb-3">Volledig Gevaccineerd</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Alle kittens vertrekken volledig gevaccineerd, ontwormd, gechipt en met een gezondheidsattest van de dierenarts.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm card-hover reveal" style="animation-delay:.2s">
+                <div class="w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center mb-5 text-sage-600"><i class="fas fa-certificate"></i></div>
+                <h3 class="font-serif text-lg font-bold text-sage-900 mb-3">Stamboom & Papieren</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Elke kitten wordt geleverd met officiële stamboomcertificaten. Wij fokken met geregistreerde raskatten van hoge kwaliteit.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm card-hover reveal" style="animation-delay:.3s">
+                <div class="w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center mb-5 text-sage-600"><i class="fas fa-heart"></i></div>
+                <h3 class="font-serif text-lg font-bold text-sage-900 mb-3">Levenslange Support</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Wij blijven beschikbaar voor vragen en advies, ook na plaatsing. Wij staan altijd klaar voor de eigenaren van onze kittens.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm card-hover reveal" style="animation-delay:.4s">
+                <div class="w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center mb-5 text-sage-600"><i class="fas fa-microscope"></i></div>
+                <h3 class="font-serif text-lg font-bold text-sage-900 mb-3">Gezondheidstest Ouders</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Onze fokdieren worden regelmatig getest op erfelijke aandoeningen. Gezondheid staat bij ons altijd op de eerste plaats.</p>
+            </div>
+
+            <div class="bg-sage-700 rounded-2xl p-8 shadow-md card-hover reveal" style="animation-delay:.5s">
+                <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5 text-white"><i class="fas fa-comments"></i></div>
+                <h3 class="font-serif text-lg font-bold text-white mb-3">Persoonlijk Contact</h3>
+                <p class="text-white/60 text-sm leading-relaxed">Wij geloven in een persoonlijke aanpak. Kom gerust langs en maak kennis met onze katten en kittens!</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-sm font-semibold mt-5" style="color:var(--gold-light)">
+                    Contact opnemen <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════ -->
+<section class="py-20 bg-sage-50">
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="text-center mb-12 reveal">
+            <h2 class="font-serif text-3xl font-bold text-sage-900 mb-3">Wat Onze Kopers Zeggen</h2>
+            <div class="gold-line w-20 mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl p-7 shadow-sm testimonial-card reveal">
+                <div class="flex gap-0.5 mb-4">
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed italic mb-5">
+                    "Onze kitten van Cattery Sage is gezond, lief en perfect gesocialiseerd. Sanne en Gertjan zijn echte liefhebbers — we zijn zo blij!"
+                </p>
+                <div class="font-semibold text-sage-800 text-sm">— Marieke, Amsterdam</div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-7 shadow-sm testimonial-card reveal" style="animation-delay:.1s">
+                <div class="flex gap-0.5 mb-4">
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed italic mb-5">
+                    "Professionele fokkers met een warm hart. Onze British Shorthair voelde zich vanaf dag één thuis. Geweldige ervaring!"
+                </p>
+                <div class="font-semibold text-sage-800 text-sm">— Thomas, Utrecht</div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-7 shadow-sm testimonial-card reveal" style="animation-delay:.2s">
+                <div class="flex gap-0.5 mb-4">
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                    <i class="fas fa-star text-amber-400 text-sm"></i>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed italic mb-5">
+                    "Zeer betrouwbaar en zorgzaam. Alle papieren op orde en de kitten was geweldig gesocialiseerd. Cattery Sage is top!"
+                </p>
+                <div class="font-semibold text-sage-800 text-sm">— Lisa, Deventer</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     CONTACT
+════════════════════════════════ -->
+<section id="contact" class="py-28" style="background-color:var(--cream)">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="text-center mb-16 reveal">
+            <div class="text-sage-500 text-xs tracking-widest uppercase font-bold mb-3">Contact</div>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-sage-900 mb-4">Neem <em>Contact</em> Op</h2>
+            <div class="gold-line w-20 mx-auto mb-6"></div>
+            <p class="text-gray-500 text-lg max-w-xl mx-auto">
+                Heeft u vragen over onze kittens of wilt u een bezoek inplannen? We horen graag van u!
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-14 max-w-5xl mx-auto">
+
+            <!-- Info + map -->
+            <div class="reveal">
+                <div class="space-y-6 mb-8">
+                    <div class="flex items-center gap-5">
+                        <div class="w-13 h-13 w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0 text-sage-600">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sage-800">Locatie</div>
+                            <div class="text-gray-500 text-sm">Apeldoorn, Gelderland, Nederland</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0 text-sage-600">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sage-800">Telefoon</div>
+                            <a href="tel:+31651476538" class="text-sage-600 hover:text-sage-800 font-semibold transition-colors">06-51476538</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0 text-sage-600">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sage-800">E-mail</div>
+                            <a href="mailto:sage@ziggo.nl" class="text-sage-600 hover:text-sage-800 font-semibold transition-colors">sage@ziggo.nl</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0 text-sage-600">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sage-800">Facebook</div>
+                            <a href="https://www.facebook.com/CatterySage/" target="_blank" rel="noopener"
+                               class="text-sage-600 hover:text-sage-800 font-semibold transition-colors">
+                                facebook.com/CatterySage
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map placeholder -->
+                <div class="rounded-2xl overflow-hidden bg-sage-100 h-52 flex flex-col items-center justify-center gap-2 border border-sage-200 shadow-inner">
+                    <i class="fas fa-map text-4xl text-sage-400"></i>
+                    <div class="text-sage-500 text-sm font-medium">Apeldoorn, Nederland</div>
+                    <div class="text-sage-400 text-xs">Gelderland</div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="reveal" style="animation-delay:.2s">
+                <form class="bg-white rounded-3xl p-8 md:p-10 shadow-sm" onsubmit="handleSubmit(event)" novalidate>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-sage-800 mb-2">Voornaam</label>
+                            <input type="text" placeholder="Jan" class="w-full px-4 py-3 rounded-xl border border-sage-200 bg-sage-50 text-sm transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-sage-800 mb-2">Achternaam</label>
+                            <input type="text" placeholder="Jansen" class="w-full px-4 py-3 rounded-xl border border-sage-200 bg-sage-50 text-sm transition-all">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-semibold text-sage-800 mb-2">E-mailadres</label>
+                        <input type="email" placeholder="jan@email.nl" class="w-full px-4 py-3 rounded-xl border border-sage-200 bg-sage-50 text-sm transition-all">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-semibold text-sage-800 mb-2">Telefoonnummer</label>
+                        <input type="tel" placeholder="06-12345678" class="w-full px-4 py-3 rounded-xl border border-sage-200 bg-sage-50 text-sm transition-all">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-semibold text-sage-800 mb-2">Interesse</label>
+                        <select class="w-full px-4 py-3 rounded-xl border border-sage-200 bg-sage-50 text-sm transition-all text-gray-500">
+                            <option value="">Selecteer een optie...</option>
+                            <option>Beschikbare kitten</option>
+                            <option>Wachtlijst aanmelden</option>
+                            <option>Bezoek inplannen</option>
+                            <option>Algemene vraag</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-7">
+                        <label class="block text-sm font-semibold text-sage-800 mb-2">Bericht</label>
+                        <textarea rows="4" placeholder="Uw bericht..." class="w-full px-4 py-3 rounded-xl border border-sage-200 bg-sage-50 text-sm transition-all resize-none"></textarea>
+                    </div>
+
+                    <button id="submit-btn" type="submit" class="w-full btn-primary text-white py-4 rounded-2xl font-bold text-sm tracking-wide flex items-center justify-center gap-2 shadow-md">
+                        <i class="fas fa-paper-plane text-xs"></i>
+                        Verstuur Bericht
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer style="background:#1a2e1a" class="pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-10 mb-12">
+
+            <!-- Brand -->
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-11 h-11 rounded-full bg-sage-600 flex items-center justify-center text-2xl shadow-md">🐱</div>
+                    <div>
+                        <div class="font-serif text-xl font-semibold text-white">Cattery Sage</div>
+                        <div class="text-sage-400 text-xs tracking-widest uppercase">British Shorthair · Apeldoorn</div>
+                    </div>
+                </div>
+                <p class="text-sage-400 text-sm leading-relaxed max-w-xs mb-6">
+                    Fokkers van prachtige British Shorthair kittens in Apeldoorn. Met liefde, passie en toewijding voor het ras.
+                </p>
+                <a href="https://www.facebook.com/CatterySage/" target="_blank" rel="noopener"
+                   class="inline-flex w-10 h-10 rounded-full bg-sage-700 hover:bg-sage-600 items-center justify-center text-white transition-colors shadow">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+
+            <!-- Nav links -->
+            <div>
+                <div class="text-white font-bold text-xs tracking-widest uppercase mb-5">Navigatie</div>
+                <div class="space-y-2.5">
+                    <a href="#over-ons" class="block text-sage-400 hover:text-white text-sm transition-colors">Over Ons</a>
+                    <a href="#ras"      class="block text-sage-400 hover:text-white text-sm transition-colors">Het Ras</a>
+                    <a href="#kittens"  class="block text-sage-400 hover:text-white text-sm transition-colors">Kittens</a>
+                    <a href="#galerij"  class="block text-sage-400 hover:text-white text-sm transition-colors">Galerij</a>
+                    <a href="#contact"  class="block text-sage-400 hover:text-white text-sm transition-colors">Contact</a>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <div class="text-white font-bold text-xs tracking-widest uppercase mb-5">Contact</div>
+                <div class="space-y-3">
+                    <a href="tel:+31651476538" class="flex items-center gap-2.5 text-sage-400 hover:text-white text-sm transition-colors">
+                        <i class="fas fa-phone text-xs w-4"></i> 06-51476538
+                    </a>
+                    <a href="mailto:sage@ziggo.nl" class="flex items-center gap-2.5 text-sage-400 hover:text-white text-sm transition-colors">
+                        <i class="fas fa-envelope text-xs w-4"></i> sage@ziggo.nl
+                    </a>
+                    <div class="flex items-center gap-2.5 text-sage-400 text-sm">
+                        <i class="fas fa-map-marker-alt text-xs w-4"></i> Apeldoorn, Nederland
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-sage-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sage-600 text-xs">
+            <span>© 2024 Cattery Sage — Familie Hagen · Alle rechten voorbehouden</span>
+            <span>British Shorthair fokkers met ❤️ in Apeldoorn</span>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ════════════════════════════════
+     SCRIPTS
+════════════════════════════════ -->
+<script>
+    /* Mobile menu */
+    function toggleMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        const isOpen = menu.classList.toggle('open');
+        icon.className = isOpen ? 'fas fa-times text-xl' : 'fas fa-bars text-xl';
+    }
+    function closeMenu() {
+        document.getElementById('mobile-menu').classList.remove('open');
+        document.getElementById('menu-icon').className = 'fas fa-bars text-xl';
+    }
+
+    /* Scroll reveal */
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* Contact form */
+    function handleSubmit(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        btn.innerHTML = '<i class="fas fa-check-circle text-sm"></i> Verstuurd!';
+        btn.style.background = 'linear-gradient(135deg, #3a624a, #1e4a2e)';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-paper-plane text-xs"></i> Verstuur Bericht';
+            btn.style.background = '';
+            btn.disabled = false;
+        }, 4000);
+    }
+</script>
+</body>
+</html>
