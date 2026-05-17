@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DedoFloors | Premium Vloeren & Traprenovatie | Apeldoorn</title>
+  <meta name="description" content="DedoFloors in Apeldoorn — specialist in PVC vloeren, laminaat, visgraat, tapijt en traprenovatie. Vakkundig gelegd voor een perfect resultaat. Vraag nu een gratis offerte aan.">
+
+  <style>
+    /* ── RESET & BASE ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+      background: #fff; color: #1a1a1a; overflow-x: hidden; line-height: 1.6;
+    }
+
+    /* ── TOKENS ───────────────────────────────────── */
+    :root {
+      --black:    #0d0d0d;
+      --dark:     #151515;
+      --dark2:    #1e1e1e;
+      --dark3:    #252525;
+      --gold:     #C8922A;
+      --gold-h:   #d9a43c;
+      --red:      #C41E3A;
+      --white:    #ffffff;
+      --light:    #f8f6f2;
+      --light2:   #f0ede8;
+      --muted:    #777;
+      --border:   #2e2e2e;
+    }
+
+    /* ── UTILS ────────────────────────────────────── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .label {
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── ANIMATIONS ───────────────────────────────── */
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
+    @keyframes marqLeft { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal.vis { opacity:1; transform:none; }
+
+    /* ── FLOOR TEXTURES (CSS) ─────────────────────── */
+    .tex-pvc {
+      background:
+        repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0px, rgba(0,0,0,.06) 1px, transparent 1px, transparent 120px),
+        linear-gradient(160deg, #a08060 0%, #8a6a44 30%, #7a5c38 60%, #6a4c2c 100%);
+    }
+    .tex-laminaat {
+      background:
+        repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0px, rgba(0,0,0,.08) 1px, transparent 1px, transparent 100px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0px, rgba(255,255,255,.04) 1px, transparent 1px, transparent 300px),
+        linear-gradient(160deg, #b89870 0%, #a07a50 40%, #8a6640 100%);
+    }
+    .tex-visgraat {
+      background:
+        repeating-linear-gradient(45deg, rgba(0,0,0,.08) 0px, rgba(0,0,0,.08) 1px, transparent 1px, transparent 28px),
+        repeating-linear-gradient(-45deg, rgba(0,0,0,.06) 0px, rgba(0,0,0,.06) 1px, transparent 1px, transparent 28px),
+        linear-gradient(160deg, #c0a880 0%, #a88a60 50%, #907040 100%);
+    }
+    .tex-tapijt {
+      background:
+        radial-gradient(ellipse at 30% 30%, rgba(255,255,255,.05) 0%, transparent 50%),
+        linear-gradient(160deg, #6a5a6a 0%, #5a4a5a 40%, #4a3a4a 100%);
+    }
+    .tex-trap {
+      background:
+        repeating-linear-gradient(180deg, rgba(0,0,0,.15) 0px, rgba(0,0,0,.15) 1px, transparent 1px, transparent 48px),
+        linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    }
+    .tex-wand {
+      background:
+        repeating-linear-gradient(180deg, rgba(255,255,255,.06) 0px, rgba(255,255,255,.06) 1px, transparent 1px, transparent 80px),
+        linear-gradient(160deg, #4a5a6a 0%, #3a4a58 50%, #2a3a48 100%);
+    }
+
+    /* Interior room gradients for hero/projects */
+    .room-1 {
+      background: radial-gradient(ellipse at 60% 40%, #5a4a38 0%, #3a2e20 40%, #1a140c 100%);
+    }
+    .room-2 { background: linear-gradient(160deg, #3a3028 0%, #2a2218 40%, #1a160e 100%); }
+    .room-3 { background: linear-gradient(160deg, #2e3828 0%, #1e2818 40%, #10180a 100%); }
+    .room-4 { background: linear-gradient(160deg, #382e28 0%, #281e18 40%, #180e08 100%); }
+    .room-5 { background: linear-gradient(160deg, #2a2a3a 0%, #1a1a2a 40%, #0a0a1a 100%); }
+
+    /* ══════════════════════════════
+       LOGO SVG
+    ══════════════════════════════ */
+    .logo-svg { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon {
+      width: 42px; height: 42px; position: relative; flex-shrink: 0;
+    }
+    .logo-icon svg { width: 100%; height: 100%; }
+    .logo-wordmark { display: flex; flex-direction: column; line-height: 1; }
+    .logo-dedo {
+      font-size: 1.3rem; font-weight: 900; letter-spacing: .08em;
+      color: var(--white); text-transform: uppercase;
+    }
+    .logo-floors {
+      font-size: .75rem; font-weight: 800; letter-spacing: .18em;
+      color: var(--red); text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════
+       TOP BAR
+    ══════════════════════════════ */
+    .topbar {
+      background: var(--dark2); border-bottom: 1px solid var(--border);
+      padding: 8px 0;
+    }
+    .topbar-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .topbar-left { display: flex; gap: 24px; }
+    .topbar-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .78rem; color: #aaa;
+    }
+    .topbar-item a { color: #aaa; text-decoration: none; transition: color .2s; }
+    .topbar-item a:hover { color: var(--gold); }
+    .topbar-icon { color: var(--gold); font-size: .9rem; }
+    .topbar-right { display: flex; gap: 16px; }
+    .social-sm {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; transition: border-color .2s, background .2s;
+      text-decoration: none; color: #aaa;
+    }
+    .social-sm:hover { border-color: var(--gold); background: rgba(200,146,42,.1); color: var(--gold); }
+
+    /* ══════════════════════════════
+       NAVBAR
+    ══════════════════════════════ */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--black);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; gap: 24px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
+    .nav-link {
+      color: #ccc; text-decoration: none;
+      font-size: .82rem; font-weight: 500; letter-spacing: .05em;
+      padding: 8px 12px; border-radius: 2px; position: relative;
+      transition: color .2s; white-space: nowrap;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-link:hover { color: var(--gold); }
+    .nav-link.active { color: var(--gold); }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 4px; left: 12px; right: 12px;
+      height: 1px; background: var(--gold);
+      transform: scaleX(0); transition: transform .25s; transform-origin: left;
+    }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-arrow { font-size: .6rem; opacity: .5; }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .nav-phone {
+      display: flex; align-items: center; gap: 8px;
+      color: #ccc; font-size: .85rem; font-weight: 500;
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-phone:hover { color: var(--gold); }
+    .nav-phone-icon { color: var(--gold); }
+    .btn-cta {
+      background: var(--gold); color: var(--black);
+      font-weight: 800; font-size: .78rem; letter-spacing: .1em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 11px 20px; border-radius: 2px;
+      transition: background .2s, transform .2s;
+      display: inline-block; white-space: nowrap;
+    }
+    .btn-cta:hover { background: var(--gold-h); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      color: var(--white); font-size: 1.4rem; padding: 4px;
+    }
+    .mobile-nav {
+      display: none; background: var(--dark); padding: 16px 40px;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a {
+      display: block; padding: 12px 0; color: #ccc; text-decoration: none;
+      font-size: .9rem; border-bottom: 1px solid var(--border); transition: color .2s;
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+    .mobile-nav .m-cta {
+      display: block; text-align: center; margin-top: 16px;
+      background: var(--gold); color: var(--black);
+      font-weight: 800; font-size: .85rem; letter-spacing: .1em;
+      text-transform: uppercase; padding: 14px; border-radius: 2px;
+      text-decoration: none;
+    }
+
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    .hero {
+      position: relative; min-height: 92vh;
+      display: flex; align-items: flex-end; padding-bottom: 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 40%, rgba(120,90,60,.4) 0%, transparent 55%),
+        radial-gradient(ellipse at 20% 80%, rgba(80,60,40,.3) 0%, transparent 50%),
+        linear-gradient(160deg, #1a1208 0%, #2a1e10 30%, #3a2a18 60%, #2a2010 100%);
+    }
+    /* Simulated wood floor planks on bottom */
+    .hero-floor {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+      background:
+        repeating-linear-gradient(90deg, rgba(0,0,0,.2) 0px, rgba(0,0,0,.2) 1px, transparent 1px, transparent 140px),
+        repeating-linear-gradient(0deg, rgba(0,0,0,.15) 0px, rgba(0,0,0,.15) 1px, transparent 1px, transparent 320px),
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 100%),
+        linear-gradient(160deg, #c0905a 0%, #a07040 40%, #8a5c30 100%);
+      mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.8) 60%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.8) 60%);
+    }
+    /* Dark overlay */
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.2) 0%, rgba(0,0,0,.1) 40%, rgba(0,0,0,.7) 100%);
+    }
+    /* Light beam effect */
+    .hero-light {
+      position: absolute; top: -100px; right: 20%;
+      width: 600px; height: 900px;
+      background: linear-gradient(160deg, rgba(200,146,42,.06) 0%, transparent 60%);
+      transform: rotate(-10deg); pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 2; color: var(--white); }
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,146,42,.15); border: 1px solid rgba(200,146,42,.35);
+      padding: 7px 16px; border-radius: 1px; margin-bottom: 28px;
+    }
+    .hero-chip span { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+    .hero-title {
+      font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -.01em; margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,.75);
+      line-height: 1.75; max-width: 520px; margin-bottom: 40px;
+    }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-gold-lg {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--black);
+      font-weight: 800; font-size: .88rem; letter-spacing: .1em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 18px 32px; border-radius: 2px;
+      transition: background .25s, transform .2s, box-shadow .2s;
+    }
+    .btn-gold-lg:hover { background: var(--gold-h); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(200,146,42,.35); }
+    .btn-outline-lg {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1.5px solid rgba(255,255,255,.4); color: var(--white);
+      font-weight: 700; font-size: .88rem; letter-spacing: .1em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 17px 32px; border-radius: 2px;
+      transition: border-color .25s, background .25s, transform .2s;
+    }
+    .btn-outline-lg:hover { border-color: var(--gold); background: rgba(200,146,42,.1); transform: translateY(-2px); }
+
+    /* WhatsApp floating */
+    .whatsapp-btn {
+      position: absolute; bottom: 32px; right: 40px; z-index: 10;
+      display: flex; align-items: center; gap: 10px;
+      background: #25D366; color: var(--white);
+      padding: 12px 20px; border-radius: 40px;
+      text-decoration: none; font-weight: 700; font-size: .85rem;
+      box-shadow: 0 8px 28px rgba(37,211,102,.35);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .whatsapp-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(37,211,102,.45); }
+    .whatsapp-icon { font-size: 1.3rem; }
+
+    /* ══════════════════════════════
+       CATEGORY STRIP
+    ══════════════════════════════ */
+    .categories { display: grid; grid-template-columns: repeat(5, 1fr); height: 240px; }
+    .cat-card {
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 24px 20px; cursor: pointer; text-decoration: none;
+      transition: flex .4s ease;
+    }
+    .cat-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 20%, rgba(0,0,0,.75) 100%);
+      transition: background .3s;
+    }
+    .cat-card:hover::after { background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.85) 100%); }
+    .cat-card:hover { flex: 1.4; }
+    .cat-content { position: relative; z-index: 2; }
+    .cat-name {
+      font-weight: 800; font-size: .9rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 4px;
+    }
+    .cat-sub { font-size: .75rem; color: rgba(255,255,255,.6); margin-bottom: 12px; }
+    .cat-arrow {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--gold); display: flex; align-items: center; justify-content: center;
+      color: var(--black); font-size: .85rem; font-weight: 800;
+      transition: transform .25s;
+    }
+    .cat-card:hover .cat-arrow { transform: translateX(4px); }
+
+    /* ══════════════════════════════
+       WHY DEDO
+    ══════════════════════════════ */
+    .why-section { background: var(--dark); padding: 88px 0; }
+    .why-header { text-align: center; margin-bottom: 64px; }
+    .why-title { font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800; color: var(--white); margin-top: 12px; }
+    .usp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+    .usp-card {
+      background: var(--dark); padding: 48px 32px;
+      text-align: center; transition: background .3s;
+    }
+    .usp-card:hover { background: var(--dark3); }
+    .usp-icon {
+      width: 64px; height: 64px; margin: 0 auto 20px;
+      border: 1.5px solid var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; transition: background .3s, transform .3s;
+    }
+    .usp-card:hover .usp-icon { background: rgba(200,146,42,.1); transform: scale(1.08); }
+    .usp-title { font-weight: 800; font-size: 1rem; color: var(--white); margin-bottom: 10px; letter-spacing: .02em; }
+    .usp-text  { font-size: .85rem; color: #888; line-height: 1.7; }
+
+    /* ══════════════════════════════
+       PROJECTS
+    ══════════════════════════════ */
+    .projects { padding: 88px 0; background: var(--light); }
+    .section-header-flex {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 48px; flex-wrap: wrap; gap: 20px;
+    }
+    .section-title { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; margin-top: 10px; }
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid var(--dark); color: var(--dark);
+      font-weight: 700; font-size: .8rem; letter-spacing: .1em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 13px 24px; border-radius: 2px;
+      transition: background .25s, color .25s; white-space: nowrap;
+    }
+    .btn-outline-dark:hover { background: var(--dark); color: var(--white); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 260px 200px;
+      gap: 8px;
+    }
+    .proj-item {
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-end;
+      cursor: pointer; border-radius: 2px;
+    }
+    .proj-item:first-child { grid-column: span 2; grid-row: span 2; }
+    .proj-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.7) 100%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .proj-item:hover::after { opacity: 1; }
+    .proj-label {
+      position: absolute; bottom: 16px; left: 16px; z-index: 3;
+      background: var(--gold); color: var(--black);
+      font-size: .72rem; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; padding: 6px 14px; border-radius: 1px;
+      opacity: 0; transform: translateY(8px);
+      transition: opacity .3s, transform .3s;
+    }
+    .proj-item:hover .proj-label { opacity: 1; transform: none; }
+    .proj-bg { position: absolute; inset: 0; transition: transform .5s ease; }
+    .proj-item:hover .proj-bg { transform: scale(1.06); }
+
+    /* ══════════════════════════════
+       REVIEWS
+    ══════════════════════════════ */
+    .reviews { padding: 88px 0; background: var(--light2); }
+    .reviews-grid { display: grid; grid-template-columns: 1fr 3fr; gap: 64px; align-items: start; }
+    .reviews-left .section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); }
+    .trustpilot {
+      display: flex; align-items: center; gap: 12px; margin-top: 24px;
+    }
+    .tp-logo {
+      font-size: .85rem; font-weight: 800; letter-spacing: .02em;
+      color: #00b67a; border: 1.5px solid #00b67a;
+      padding: 6px 12px; border-radius: 2px;
+    }
+    .tp-stars { display: flex; gap: 3px; }
+    .tp-star {
+      width: 24px; height: 24px; background: #00b67a;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: .8rem; border-radius: 2px;
+    }
+    .tp-score { font-weight: 700; color: #333; font-size: .88rem; }
+    .reviews-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .review-card {
+      background: var(--white); padding: 28px;
+      border-radius: 2px; border: 1px solid #e0dbd4;
+      transition: box-shadow .3s, transform .3s;
+    }
+    .review-card:hover { box-shadow: 0 12px 36px rgba(0,0,0,.08); transform: translateY(-4px); }
+    .rc-stars { color: #00b67a; font-size: 1rem; letter-spacing: 2px; margin-bottom: 14px; }
+    .rc-text { font-size: .9rem; color: #555; line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .rc-author { font-weight: 800; font-size: .85rem; margin-bottom: 2px; }
+    .rc-product { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+
+    /* ══════════════════════════════
+       SERVICES DETAIL
+    ══════════════════════════════ */
+    .services-detail { padding: 88px 0; background: var(--white); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .svc-card {
+      border: 1px solid #e0dbd4; border-radius: 2px; overflow: hidden;
+      transition: box-shadow .3s, transform .3s;
+    }
+    .svc-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,.1); transform: translateY(-4px); }
+    .svc-img {
+      height: 200px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; font-size: 4rem;
+    }
+    .svc-img-bg { position: absolute; inset: 0; transition: transform .5s; }
+    .svc-card:hover .svc-img-bg { transform: scale(1.08); }
+    .svc-img-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.2); }
+    .svc-body { padding: 28px; }
+    .svc-name { font-weight: 800; font-size: 1.1rem; margin-bottom: 10px; }
+    .svc-text { font-size: .88rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .svc-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--gold); font-weight: 700; font-size: .82rem;
+      letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
+      transition: gap .2s;
+    }
+    .svc-link:hover { gap: 14px; }
+
+    /* ══════════════════════════════
+       CTA BANNER
+    ══════════════════════════════ */
+    .cta-banner {
+      background: var(--dark);
+      padding: 80px 0;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(200,146,42,.08) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .cta-text h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; color: var(--white); margin-bottom: 10px; }
+    .cta-text p  { color: #888; font-size: 1rem; }
+    .cta-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ══════════════════════════════
+       SHOWROOM STRIP
+    ══════════════════════════════ */
+    .showroom-strip { background: var(--gold); padding: 24px 0; }
+    .showroom-inner {
+      display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;
+    }
+    .showroom-item { display: flex; align-items: center; gap: 10px; color: var(--black); font-size: .88rem; font-weight: 600; }
+    .show-sep { color: rgba(0,0,0,.3); }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer { background: var(--black); padding: 72px 0 32px; border-top: 1px solid var(--border); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.2fr 1.2fr; gap: 48px; margin-bottom: 56px; }
+    .footer-brand p { color: #666; font-size: .85rem; line-height: 1.8; margin-top: 20px; max-width: 280px; }
+    .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-col h4 {
+      color: var(--white); font-size: .72rem; letter-spacing: .2em;
+      text-transform: uppercase; font-weight: 700; margin-bottom: 20px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      color: #666; text-decoration: none; font-size: .85rem; transition: color .2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-col ul li a .fi { color: var(--gold); font-size: .75rem; }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-bottom p { color: #444; font-size: .78rem; }
+    .footer-bottom a { color: #444; text-decoration: none; font-size: .78rem; transition: color .2s; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .footer-legal { display: flex; gap: 24px; }
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (max-width: 1024px) {
+      .container { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-phone { display: none; }
+      .categories { grid-template-columns: repeat(3,1fr); height: auto; }
+      .cat-card { height: 180px; }
+      .usp-grid { grid-template-columns: repeat(2,1fr); }
+      .projects-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; }
+      .projects-grid .proj-item:first-child { grid-column: span 2; height: 300px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-cards { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .topbar { display: none; }
+      .hero-title { font-size: 2.4rem; }
+      .categories { grid-template-columns: repeat(2,1fr); }
+      .usp-grid { grid-template-columns: 1fr; }
+      .reviews-cards { grid-template-columns: 1fr; }
+      .cta-inner { flex-direction: column; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .services-grid { grid-template-columns: 1fr; }
+      .whatsapp-btn { bottom: 16px; right: 16px; padding: 10px 16px; font-size: .78rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding-bottom: 60px; }
+      .hero-cta { flex-direction: column; }
+      .btn-gold-lg, .btn-outline-lg { justify-content: center; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .projects-grid .proj-item:first-child { grid-column: auto; }
+      .showroom-inner { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     TOP BAR
+══════════════════════════════════════ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <div class="topbar-item"><span class="topbar-icon">📞</span><a href="tel:0553032167">055 303 21 67</a></div>
+      <div class="topbar-item"><span class="topbar-icon">✉</span><a href="mailto:info@dedofloors.com">info@dedofloors.com</a></div>
+      <div class="topbar-item"><span class="topbar-icon">📍</span><span>Arnhemseweg 442, Apeldoorn</span></div>
+    </div>
+    <div class="topbar-right">
+      <a href="#" class="social-sm">📷</a>
+      <a href="#" class="social-sm">f</a>
+      <a href="#" class="social-sm">in</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <!-- Logo -->
+    <a href="#" class="logo-svg">
+      <div class="logo-icon">
+        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="40" height="40" fill="#0d0d0d" stroke="#C41E3A" stroke-width="2.5"/>
+          <rect x="5" y="5" width="32" height="32" fill="none" stroke="#C41E3A" stroke-width="1.2" opacity="0.5"/>
+          <path d="M11 12h8c5.523 0 10 4.477 10 10s-4.477 10-10 10H11V12z" fill="white"/>
+          <path d="M11 12h5v20h-5V12z" fill="#0d0d0d"/>
+        </svg>
+      </div>
+      <div class="logo-wordmark">
+        <span class="logo-dedo">DEDO</span>
+        <span class="logo-floors">FLOORS</span>
+      </div>
+    </a>
+
+    <!-- Links -->
+    <div class="nav-links">
+      <a href="#categories" class="nav-link active">PVC Vloeren <span class="nav-arrow">▾</span></a>
+      <a href="#categories" class="nav-link">Laminaat <span class="nav-arrow">▾</span></a>
+      <a href="#categories" class="nav-link">Tapijt <span class="nav-arrow">▾</span></a>
+      <a href="#categories" class="nav-link">Traprenovatie</a>
+      <a href="#projects" class="nav-link">Projecten</a>
+      <a href="#about" class="nav-link">Over Ons</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+    <!-- Actions -->
+    <div class="nav-actions">
+      <a href="tel:0553032167" class="nav-phone">
+        <span class="nav-phone-icon">📞</span> 055 303 21 67
+      </a>
+      <a href="#offerte" class="btn-cta">Offerte Aanvragen</a>
+      <button class="hamburger" onclick="toggleNav()">☰</button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#categories">PVC Vloeren</a>
+    <a href="#categories">Laminaat</a>
+    <a href="#categories">Visgraat</a>
+    <a href="#categories">Tapijt</a>
+    <a href="#categories">Traprenovatie</a>
+    <a href="#projects">Projecten</a>
+    <a href="#about">Over Ons</a>
+    <a href="#contact">Contact</a>
+    <a href="#offerte" class="m-cta">Offerte Aanvragen →</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-floor"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-light"></div>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/310553032167" class="whatsapp-btn" target="_blank">
+    <span class="whatsapp-icon">💬</span> WhatsApp ons
+  </a>
+
+  <div class="container hero-content">
+    <div class="hero-chip">
+      <span>Dedo Floors</span>
+    </div>
+    <h1 class="hero-title">
+      Premium vloeren<br>voor iedere ruimte.
+    </h1>
+    <p class="hero-sub">
+      Bij Dedo Floors vindt u een exclusieve collectie PVC vloeren, laminaat, tapijt en traprenovatie van de hoogste kwaliteit. Vakkundig gelegd voor een perfect resultaat.
+    </p>
+    <div class="hero-cta">
+      <a href="#categories" class="btn-gold-lg">Bekijk Collecties →</a>
+      <a href="#showroom" class="btn-outline-lg">Plan Showroom Afspraak</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     CATEGORIES STRIP
+══════════════════════════════════════ -->
+<div class="categories" id="categories">
+
+  <a href="#services" class="cat-card tex-pvc">
+    <div class="cat-content">
+      <div class="cat-name">PVC Vloeren</div>
+      <div class="cat-sub">Duurzaam & stijlvol</div>
+      <div class="cat-arrow">→</div>
+    </div>
+  </a>
+
+  <a href="#services" class="cat-card tex-laminaat">
+    <div class="cat-content">
+      <div class="cat-name">Laminaat</div>
+      <div class="cat-sub">Sterk & onderhoudsvriendelijk</div>
+      <div class="cat-arrow">→</div>
+    </div>
+  </a>
+
+  <a href="#services" class="cat-card tex-visgraat">
+    <div class="cat-content">
+      <div class="cat-name">Visgraat</div>
+      <div class="cat-sub">Tijdloos & elegant</div>
+      <div class="cat-arrow">→</div>
+    </div>
+  </a>
+
+  <a href="#services" class="cat-card tex-tapijt">
+    <div class="cat-content">
+      <div class="cat-name">Tapijt</div>
+      <div class="cat-sub">Warmte & comfort</div>
+      <div class="cat-arrow">→</div>
+    </div>
+  </a>
+
+  <a href="#services" class="cat-card tex-trap">
+    <div class="cat-content">
+      <div class="cat-name">Traprenovatie</div>
+      <div class="cat-sub">Geef uw trap een nieuwe look</div>
+      <div class="cat-arrow">→</div>
+    </div>
+  </a>
+
+</div>
+
+
+<!-- ══════════════════════════════════════
+     WHY DEDO FLOORS
+══════════════════════════════════════ -->
+<section class="why-section" id="about">
+  <div class="container">
+    <div class="why-header reveal">
+      <span class="label">Waarom kiezen voor Dedo Floors?</span>
+      <h2 class="why-title">Kwaliteit, service & vakmanschap</h2>
+    </div>
+    <div class="usp-grid">
+      <div class="usp-card reveal">
+        <div class="usp-icon">🤝</div>
+        <div class="usp-title">Persoonlijk advies</div>
+        <div class="usp-text">Wij denken met u mee en geven advies op maat voor uw situatie. Altijd eerlijk en transparant.</div>
+      </div>
+      <div class="usp-card reveal" style="transition-delay:.1s">
+        <div class="usp-icon">🏆</div>
+        <div class="usp-title">Hoogwaardige kwaliteit</div>
+        <div class="usp-text">Alleen de beste merken en materialen voor een langdurig mooi resultaat dat u jarenlang plezier geeft.</div>
+      </div>
+      <div class="usp-card reveal" style="transition-delay:.2s">
+        <div class="usp-icon">🔧</div>
+        <div class="usp-title">Vakkundige plaatsing</div>
+        <div class="usp-text">Onze ervaren vakmensen zorgen voor een perfecte afwerking. Strak, nauwkeurig en netjes.</div>
+      </div>
+      <div class="usp-card reveal" style="transition-delay:.3s">
+        <div class="usp-icon">⭐</div>
+        <div class="usp-title">Tevreden klanten</div>
+        <div class="usp-text">Wij scoren hoog op klanttevredenheid en kwaliteit. Dat merkt u! Lees onze reviews en oordeel zelf.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════ -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="section-header-flex reveal">
+      <div>
+        <span class="label">Gerealiseerde projecten</span>
+        <h2 class="section-title">Bekijk ons werk</h2>
+      </div>
+      <a href="#" class="btn-outline-dark">Bekijk alle projecten →</a>
+    </div>
+
+    <div class="projects-grid reveal">
+      <!-- Large featured -->
+      <div class="proj-item">
+        <div class="proj-bg room-1" style="position:absolute;inset:0;
+          background:
+            repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0px,rgba(0,0,0,.12) 1px,transparent 1px,transparent 130px),
+            linear-gradient(160deg,#6a5030 0%,#4a3420 40%,#2a1e10 100%);">
+        </div>
+        <div class="proj-label">PVC Vloer · Woonkamer</div>
+      </div>
+
+      <div class="proj-item" style="height:260px">
+        <div class="proj-bg" style="position:absolute;inset:0;
+          background:
+            repeating-linear-gradient(45deg,rgba(0,0,0,.1) 0px,rgba(0,0,0,.1) 1px,transparent 1px,transparent 28px),
+            linear-gradient(160deg,#8a6840 0%,#6a4828 60%,#4a2810 100%);">
+        </div>
+        <div class="proj-label">Visgraat · Hal</div>
+      </div>
+
+      <div class="proj-item" style="height:260px">
+        <div class="proj-bg" style="position:absolute;inset:0;
+          background:
+            repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0px,rgba(0,0,0,.12) 1px,transparent 1px,transparent 100px),
+            linear-gradient(160deg,#5a4a6a 0%,#3a2a4a 50%,#1a0a2a 100%);">
+        </div>
+        <div class="proj-label">Tapijt · Slaapkamer</div>
+      </div>
+
+      <div class="proj-item" style="height:200px">
+        <div class="proj-bg" style="position:absolute;inset:0;
+          background:
+            repeating-linear-gradient(180deg,rgba(0,0,0,.2) 0px,rgba(0,0,0,.2) 1px,transparent 1px,transparent 48px),
+            linear-gradient(160deg,#3a3030 0%,#2a2020 50%,#1a1010 100%);">
+        </div>
+        <div class="proj-label">Traprenovatie</div>
+      </div>
+
+      <div class="proj-item" style="height:200px">
+        <div class="proj-bg" style="position:absolute;inset:0;
+          background:
+            repeating-linear-gradient(90deg,rgba(0,0,0,.1) 0px,rgba(0,0,0,.1) 1px,transparent 1px,transparent 110px),
+            linear-gradient(160deg,#6a5838 0%,#4a3820 50%,#2a1808 100%);">
+        </div>
+        <div class="proj-label">Laminaat · Woonkamer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SERVICES DETAIL
+══════════════════════════════════════ -->
+<section class="services-detail" id="services">
+  <div class="container">
+    <div class="section-header-flex reveal">
+      <div>
+        <span class="label">Ons aanbod</span>
+        <h2 class="section-title">Alles voor uw vloer</h2>
+      </div>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card reveal">
+        <div class="svc-img tex-pvc">
+          <div class="svc-img-bg tex-pvc" style="position:absolute;inset:0"></div>
+          <div class="svc-img-overlay"></div>
+        </div>
+        <div class="svc-body">
+          <div class="label" style="margin-bottom:8px">Duurzaam & stijlvol</div>
+          <div class="svc-name">PVC Vloeren</div>
+          <div class="svc-text">PVC vloeren zijn waterbestendig, slijtvast en onderhoudsvriendelijk. Ideaal voor elke ruimte — van woonkamer tot badkamer. Verkrijgbaar in talloze dessins en kleuren.</div>
+          <a href="#" class="svc-link">Meer informatie →</a>
+        </div>
+      </div>
+
+      <div class="svc-card reveal" style="transition-delay:.1s">
+        <div class="svc-img tex-laminaat">
+          <div class="svc-img-bg tex-laminaat" style="position:absolute;inset:0"></div>
+          <div class="svc-img-overlay"></div>
+        </div>
+        <div class="svc-body">
+          <div class="label" style="margin-bottom:8px">Sterk & betaalbaar</div>
+          <div class="svc-name">Laminaat & Visgraat</div>
+          <div class="svc-text">Hoogwaardig laminaat in vele stijlen — van klassiek tot modern. Het visgraatpatroon geeft elke ruimte een tijdloze, elegante uitstraling. Eenvoudig te onderhouden.</div>
+          <a href="#" class="svc-link">Meer informatie →</a>
+        </div>
+      </div>
+
+      <div class="svc-card reveal" style="transition-delay:.2s">
+        <div class="svc-img tex-tapijt">
+          <div class="svc-img-bg tex-tapijt" style="position:absolute;inset:0"></div>
+          <div class="svc-img-overlay"></div>
+        </div>
+        <div class="svc-body">
+          <div class="label" style="margin-bottom:8px">Warmte & comfort</div>
+          <div class="svc-name">Tapijt</div>
+          <div class="svc-text">Tapijt geeft warmte, geluidsisolatie en comfort aan uw ruimte. Wij bieden een uitgebreide collectie in diverse kleuren, stijlen en structuren voor elk interieur.</div>
+          <a href="#" class="svc-link">Meer informatie →</a>
+        </div>
+      </div>
+
+      <div class="svc-card reveal" style="transition-delay:.05s">
+        <div class="svc-img tex-trap">
+          <div class="svc-img-bg tex-trap" style="position:absolute;inset:0"></div>
+          <div class="svc-img-overlay"></div>
+        </div>
+        <div class="svc-body">
+          <div class="label" style="margin-bottom:8px">Veilig & stijlvol</div>
+          <div class="svc-name">Traprenovatie</div>
+          <div class="svc-text">Geef uw trap een complete metamorfose. Traprenovatie zorgt niet alleen voor een nieuwe uitstraling, maar ook voor extra veiligheid en duurzaamheid. Snel en netjes uitgevoerd.</div>
+          <a href="#" class="svc-link">Meer informatie →</a>
+        </div>
+      </div>
+
+      <div class="svc-card reveal" style="transition-delay:.15s">
+        <div class="svc-img tex-wand">
+          <div class="svc-img-bg tex-wand" style="position:absolute;inset:0"></div>
+          <div class="svc-img-overlay"></div>
+        </div>
+        <div class="svc-body">
+          <div class="label" style="margin-bottom:8px">Modern & decoratief</div>
+          <div class="svc-name">Wandpanelen</div>
+          <div class="svc-text">Wandpanelen zijn de perfecte manier om een ruimte te transformeren. Strak, modern en eenvoudig te monteren. Kies uit een groot assortiment kleuren en structuren.</div>
+          <a href="#" class="svc-link">Meer informatie →</a>
+        </div>
+      </div>
+
+      <!-- CTA card -->
+      <div class="svc-card reveal" style="background:var(--dark);border-color:var(--border);transition-delay:.25s">
+        <div style="padding:40px 28px;display:flex;flex-direction:column;justify-content:space-between;height:100%;min-height:320px">
+          <div>
+            <span class="label" style="display:block;margin-bottom:16px">Gratis advies</span>
+            <h3 style="font-size:1.6rem;font-weight:800;color:var(--white);line-height:1.2;margin-bottom:16px">
+              Niet zeker welke vloer bij u past?
+            </h3>
+            <p style="color:#777;font-size:.88rem;line-height:1.7">
+              Kom langs in onze showroom of vraag een gratis adviesgesprek aan. Onze experts helpen u de perfecte keuze te maken.
+            </p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:32px">
+            <a href="#offerte" class="btn-gold-lg" style="justify-content:center">Offerte Aanvragen</a>
+            <a href="#showroom" class="btn-outline-lg" style="justify-content:center;border-color:var(--border)">Plan Showroom Bezoek</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     REVIEWS
+══════════════════════════════════════ -->
+<section class="reviews">
+  <div class="container">
+    <div class="reviews-grid">
+      <div class="reveal">
+        <span class="label">Klanten beoordelen ons</span>
+        <h2 class="section-title">Wat onze klanten zeggen</h2>
+        <div class="trustpilot">
+          <div class="tp-logo">Trustpilot</div>
+          <div class="tp-stars">
+            <div class="tp-star">★</div>
+            <div class="tp-star">★</div>
+            <div class="tp-star">★</div>
+            <div class="tp-star">★</div>
+            <div class="tp-star">★</div>
+          </div>
+          <div>
+            <div class="tp-score">4.8 sterren op Trustpilot</div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-cards">
+        <div class="review-card reveal">
+          <div class="rc-stars">★★★★★</div>
+          <p class="rc-text">"Prachtige PVC vloer laten leggen door Dedo Floors. Alles is netjes volgens afspraak gegaan en het resultaat is fantastisch!"</p>
+          <div class="rc-author">Melanie Jansen</div>
+          <div class="rc-product">PVC Vloer · Woonkamer</div>
+        </div>
+        <div class="review-card reveal" style="transition-delay:.1s">
+          <div class="rc-stars">★★★★★</div>
+          <p class="rc-text">"Vakmensen die weten wat ze doen. We zijn super blij met onze nieuwe vloer en trap. Netjes, snel en keurig opgeruimd."</p>
+          <div class="rc-author">Rick van den Berg</div>
+          <div class="rc-product">Traprenovatie + Laminaat</div>
+        </div>
+        <div class="review-card reveal" style="transition-delay:.2s">
+          <div class="rc-stars">★★★★★</div>
+          <p class="rc-text">"Fijn advies in de showroom en een strakke plaatsing. Zeker een aanrader! Dedo Floors denkt echt met je mee."</p>
+          <div class="rc-author">Laura de Wit</div>
+          <div class="rc-product">Visgraat · Hal & Woonkamer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SHOWROOM STRIP
+══════════════════════════════════════ -->
+<div class="showroom-strip" id="showroom">
+  <div class="showroom-inner">
+    <div class="showroom-item">🏪 <span>Showroom in Apeldoorn</span></div>
+    <span class="show-sep">|</span>
+    <div class="showroom-item">📅 <span>Op afspraak — altijd persoonlijke aandacht</span></div>
+    <span class="show-sep">|</span>
+    <div class="showroom-item">📍 <span>Arnhemseweg 442, Beekbergen</span></div>
+    <span class="show-sep">|</span>
+    <a href="tel:0553032167" style="display:flex;align-items:center;gap:10px;color:var(--black);font-size:.88rem;font-weight:800;text-decoration:none">
+      📞 <span>055 303 21 67</span>
+    </a>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     CTA BANNER
+══════════════════════════════════════ -->
+<section class="cta-banner" id="offerte">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <span class="label" style="display:block;margin-bottom:12px">Gratis en vrijblijvend</span>
+        <h2>Klaar voor een nieuwe vloer?</h2>
+        <p>Vraag vrijblijvend een offerte aan of plan een afspraak in onze showroom.</p>
+      </div>
+      <div class="cta-buttons">
+        <a href="mailto:info@dedofloors.com" class="btn-gold-lg">Offerte Aanvragen →</a>
+        <a href="tel:0553032167" class="btn-outline-lg">Plan Showroom Afspraak</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#" class="logo-svg">
+          <div class="logo-icon">
+            <svg viewBox="0 0 42 42" fill="none">
+              <rect x="1" y="1" width="40" height="40" fill="#0d0d0d" stroke="#C41E3A" stroke-width="2.5"/>
+              <rect x="5" y="5" width="32" height="32" fill="none" stroke="#C41E3A" stroke-width="1.2" opacity="0.5"/>
+              <path d="M11 12h8c5.523 0 10 4.477 10 10s-4.477 10-10 10H11V12z" fill="white"/>
+              <path d="M11 12h5v20h-5V12z" fill="#0d0d0d"/>
+            </svg>
+          </div>
+          <div class="logo-wordmark">
+            <span class="logo-dedo">DEDO</span>
+            <span class="logo-floors">FLOORS</span>
+          </div>
+        </a>
+        <p>Dedo Floors is gespecialiseerd in PVC vloeren, laminaat, tapijt en traprenovatie. Kwaliteit, service en vakmanschap staan bij ons centraal.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-sm">📷</a>
+          <a href="#" class="social-sm">f</a>
+          <a href="#" class="social-sm">📌</a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="footer-col">
+        <h4>Snel Naar</h4>
+        <ul>
+          <li><a href="#"><span class="fi">›</span> PVC Vloeren</a></li>
+          <li><a href="#"><span class="fi">›</span> Laminaat</a></li>
+          <li><a href="#"><span class="fi">›</span> Tapijt</a></li>
+          <li><a href="#"><span class="fi">›</span> Traprenovatie</a></li>
+          <li><a href="#projects"><span class="fi">›</span> Projecten</a></li>
+          <li><a href="#contact"><span class="fi">›</span> Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0553032167">📞 055 303 21 67</a></li>
+          <li><a href="mailto:info@dedofloors.com">✉ info@dedofloors.com</a></li>
+          <li><a href="#">📍 Arnhemseweg 442<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Beekbergen, Apeldoorn</a></li>
+        </ul>
+      </div>
+
+      <!-- Openingstijden -->
+      <div class="footer-col">
+        <h4>Openingstijden</h4>
+        <ul>
+          <li><a href="#">Ma – Vr: 09:00 – 17:30</a></li>
+          <li><a href="#">Zaterdag: Op afspraak</a></li>
+          <li><a href="#">Zondag: Gesloten</a></li>
+          <li><a href="#" style="color:var(--gold);margin-top:8px;display:block">📅 Plan een afspraak →</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr class="footer-bottom" style="border:none;border-top:1px solid var(--border);margin-bottom:28px">
+
+    <div class="footer-bottom">
+      <p>© 2024 Dedo Floors. Alle rechten voorbehouden.</p>
+      <div class="footer-legal">
+        <a href="#">Algemene voorwaarden</a>
+        <a href="#">Privacyverklaring</a>
+        <a href="#">Cookiebeleid</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════ -->
+<script>
+  function toggleNav() {
+    document.getElementById('mobile-nav').classList.toggle('open');
+  }
+
+  /* Scroll reveal */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  /* Active nav on scroll */
+  const sections = ['home','categories','about','projects','offerte','contact'];
+</script>
+
+</body>
+</html>
