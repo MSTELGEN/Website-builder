@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 7-Night Sleep Reset — ManyRituals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F4EFE6;
+      --charcoal: #2C2A26;
+      --clay: #C8876B;
+      --white: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #D8D0C4;
+      font-family: 'Poppins', sans-serif;
+      color: var(--charcoal);
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      width: 794px;
+      min-height: 1123px;
+      background: var(--cream);
+      margin: 24px auto;
+      padding: 72px 72px 80px;
+      position: relative;
+      page-break-after: always;
+    }
+
+    /* ── BRAND PILL ── */
+    .brand-pill {
+      position: absolute;
+      top: 28px;
+      right: 40px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--charcoal);
+      background: var(--white);
+      border: 1px solid rgba(44,42,38,0.15);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    /* ── DAY NUMBER ── */
+    .day-number {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 80px;
+      color: var(--clay);
+      line-height: 1;
+      margin-bottom: 4px;
+      opacity: 0.85;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 1.2;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 1.25;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 8px;
+      margin-top: 24px;
+    }
+
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+    }
+
+    ul {
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 14px;
+    }
+
+    ul li {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--charcoal);
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--clay);
+      font-weight: 400;
+    }
+
+    .accent {
+      color: var(--clay);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .citation {
+      position: absolute;
+      bottom: 44px;
+      left: 72px;
+      right: 72px;
+      font-family: 'Poppins', sans-serif;
+      font-style: italic;
+      font-size: 10px;
+      color: rgba(44,42,38,0.5);
+      border-top: 1px solid rgba(44,42,38,0.12);
+      padding-top: 10px;
+    }
+
+    .track-box {
+      background: var(--white);
+      border: 1px solid rgba(44,42,38,0.1);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 20px;
+    }
+
+    .track-box .label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 6px;
+    }
+
+    .track-box p {
+      font-size: 12.5px;
+      margin: 0;
+      font-style: italic;
+    }
+
+    /* ── COVER PAGE ── */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 1123px;
+    }
+
+    .cover-top {
+      margin-top: 80px;
+    }
+
+    .cover-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 32px;
+    }
+
+    .cover h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .cover .subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--charcoal);
+      max-width: 520px;
+      margin-bottom: 0;
+    }
+
+    .cover-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--clay);
+      margin: 40px 0;
+    }
+
+    .cover-note {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 13px;
+      line-height: 1.75;
+      color: rgba(44,42,38,0.7);
+      max-width: 560px;
+    }
+
+    .cover-bottom {
+      padding-bottom: 80px;
+    }
+
+    .cover-tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(44,42,38,0.4);
+    }
+
+    /* ── INTRO PAGE ── */
+    .intro-eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 12px;
+    }
+
+    .milestone-row {
+      display: flex;
+      gap: 0;
+      margin: 28px 0;
+      border: 1px solid rgba(44,42,38,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .milestone {
+      flex: 1;
+      padding: 18px 20px;
+      border-right: 1px solid rgba(44,42,38,0.1);
+    }
+
+    .milestone:last-child {
+      border-right: none;
+    }
+
+    .milestone .night {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--clay);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .milestone p {
+      font-size: 11.5px;
+      line-height: 1.6;
+      margin: 0;
+      color: rgba(44,42,38,0.75);
+    }
+
+    .honest-box {
+      background: var(--white);
+      border-left: 3px solid var(--clay);
+      padding: 16px 20px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 24px;
+    }
+
+    .honest-box .honest-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 6px;
+    }
+
+    .honest-box p {
+      font-size: 12.5px;
+      margin: 0;
+      line-height: 1.7;
+      color: rgba(44,42,38,0.8);
+    }
+
+    /* ── DAY PAGE ── */
+    .day-header {
+      margin-bottom: 20px;
+    }
+
+    .day-summary {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .day-summary p {
+      margin: 0;
+      font-style: italic;
+    }
+
+    .section-block {
+      margin-bottom: 18px;
+    }
+
+    /* ── TRACKER PAGE ── */
+    .tracker-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+
+    .tracker-table th {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--clay);
+      text-align: center;
+      padding: 8px 6px;
+      border-bottom: 1px solid rgba(44,42,38,0.12);
+    }
+
+    .tracker-table th:first-child {
+      text-align: left;
+    }
+
+    .tracker-table td {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11.5px;
+      color: var(--charcoal);
+      padding: 10px 6px;
+      border-bottom: 1px solid rgba(44,42,38,0.07);
+      text-align: center;
+    }
+
+    .tracker-table td:first-child {
+      text-align: left;
+      padding-right: 16px;
+      font-size: 12px;
+    }
+
+    .check-box {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid rgba(44,42,38,0.25);
+      border-radius: 4px;
+      vertical-align: middle;
+    }
+
+    .closing-note {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-top: 24px;
+    }
+
+    .closing-note p {
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    .closing-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .logo-final {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-top: 40px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body {
+        background: var(--cream);
+      }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 1: COVER                              -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <div class="cover-top">
+    <div class="cover-brand">ManyRituals</div>
+    <h1>The 7-Night<br>Sleep Reset</h1>
+    <p class="subtitle">Research-backed rituals for deeper sleep, calmer mornings, and a body that actually recovers.</p>
+    <div class="cover-divider"></div>
+    <p class="cover-note">This guide was built from published sleep science — not personal anecdote, not supplement marketing, not wellness trends. Seven rituals, one per night, starting tonight. We hope it helps.</p>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-tagline">Sleep research, decoded</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 2: HOW TO USE THIS GUIDE             -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <div class="intro-eyebrow">Before you begin</div>
+  <h2>How to Use This Guide</h2>
+
+  <p>This is a seven-night experiment, not a seven-night cure. That distinction matters.</p>
+
+  <p>Each night introduces one new variable — something specific, measurable, and grounded in sleep science. The structure is intentional: the early days address your bedroom environment (the variables with the fastest measurable effect), the middle days address your body's physiology, and the final days address position and nervous system state. Stack them as you go. By Night 7, all seven are running together.</p>
+
+  <div class="milestone-row">
+    <div class="milestone">
+      <span class="night">Night 3</span>
+      <p>Most people notice faster sleep onset. Temperature and light corrections produce the earliest feedback.</p>
+    </div>
+    <div class="milestone">
+      <span class="night">Night 5</span>
+      <p>Improved sleep continuity. Dinner and alcohol changes take 2–3 nights to normalise blood sugar and cortisol rhythms.</p>
+    </div>
+    <div class="milestone">
+      <span class="night">Night 7</span>
+      <p>With all seven rituals running: fewer night wakings, longer slow-wave sleep, calmer mornings.</p>
+    </div>
+  </div>
+
+  <p>The rituals in this guide address seven high-leverage sleep variables — the ones with the strongest evidence base and the fastest measurable feedback. That is a meaningful set. It is not an exhaustive one.</p>
+
+  <div class="honest-box">
+    <div class="honest-label">The honest part</div>
+    <p>This guide will not fix obstructive sleep apnea, perimenopause-related sleep disruption, clinical insomnia, or anxiety disorders. If you've tried structured sleep hygiene for several weeks without improvement, please speak to a GP or sleep specialist. These rituals are a strong foundation — they are not a replacement for clinical assessment.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 3: DAY 1 — BEDROOM TEMPERATURE        -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <div class="day-header">
+    <div class="day-number">01</div>
+    <h2>Bedroom Temperature</h2>
+  </div>
+
+  <div class="day-summary">
+    <p>Lower your bedroom to between <span class="accent">18°C and 19°C</span> before sleep. If you can't control the thermostat, open a window, use a fan, or remove one layer of bedding.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>Why this works</h3>
+    <p>Your core body temperature needs to drop by approximately 1–1.5°C to initiate and maintain sleep. This is not optional — it is hardwired biology. Matthew Walker's lab at UC Berkeley documented this extensively: subjects sleeping in rooms above 22°C showed measurably reduced slow-wave sleep compared to nights at 18°C. The mechanism is vasodilation — your hands and feet act as radiators, releasing heat to drop your core. A warm room blocks this process. A cool room accelerates it.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>The protocol</h3>
+    <ul>
+      <li>Set thermostat to <strong>18°C (65°F)</strong> or as close as your system allows</li>
+      <li>Direct a fan across the bed, not at your face</li>
+      <li>Keep one lightweight blanket — warm above, cool below is the optimal configuration</li>
+      <li>Wear socks if your feet feel cold: warm feet speed up core cooling by drawing blood to the surface</li>
+      <li>Start cooling the room <strong>30–60 minutes</strong> before sleep, not at lights-out</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>Common mistakes</h3>
+    <ul>
+      <li>Settling for 22°C — the difference between 19°C and 22°C is physiologically significant</li>
+      <li>Wearing heavy pyjamas to compensate for a too-warm room</li>
+      <li>Forgetting a partner raises room temperature — adjust accordingly</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>What to expect</h3>
+    <p>Faster sleep onset within the first two nights. Deep sleep improvement measurable on a tracker within three to four nights.</p>
+  </div>
+
+  <div class="track-box">
+    <div class="label">Track it</div>
+    <p>Did I sleep in a room at or below 19°C tonight? &nbsp;&nbsp; Yes &nbsp;/&nbsp; No</p>
+  </div>
+
+  <div class="citation">
+    Walker, M. (2017). <em>Why We Sleep</em>. Scribner. Chapter 2, thermoregulation and sleep architecture.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 4: DAY 2 — PHONE OUT OF THE BEDROOM  -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <div class="day-header">
+    <div class="day-number">02</div>
+    <h2>Phone Out of the Bedroom</h2>
+  </div>
+
+  <div class="day-summary">
+    <p>Place your phone outside the bedroom <span class="accent">before your wind-down begins</span>. Charge it in any room that isn't the one you sleep in.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>Why this works</h3>
+    <p>The research problem with phones in the bedroom is not primarily about blue light — it's about vigilance. Colin Drake and colleagues at the University of South Australia have shown that the mere presence of a smartphone activates cognitive vigilance: the brain enters a low-level alertness state, ready to respond to a notification even when the phone is face-down and on silent. This vigilance is physiologically incompatible with sleep onset. Additionally, one late-night check — even a single one — delays melatonin secretion and reactivates alerting neural pathways that take <span class="accent">20–40 minutes</span> to quiet again.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>The protocol</h3>
+    <ul>
+      <li>Move the phone before your wind-down begins — not at lights-out</li>
+      <li>Buy a cheap alarm clock (£10–15) to remove the last reason it needs to be in the room</li>
+      <li>Tell people who might contact you late that you're unreachable after a set time</li>
+      <li>If you must have it nearby for emergencies: outside the door, silent, screen-down</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>Common mistakes</h3>
+    <ul>
+      <li>Keeping it "just in case" and then checking it one time — one check can delay sleep by 30+ minutes</li>
+      <li>Using blue-light glasses as a substitute for removing the device</li>
+      <li>Leaving it face-down on the bedside table and assuming that's sufficient</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>What to expect</h3>
+    <p>Sleep onset speed typically improves within one to two nights. The longer benefit — fragmented early-morning sleep reducing — takes more time as the habit stabilises.</p>
+  </div>
+
+  <div class="track-box">
+    <div class="label">Track it</div>
+    <p>Did I charge my phone outside the bedroom last night? &nbsp;&nbsp; Yes &nbsp;/&nbsp; No</p>
+  </div>
+
+  <div class="citation">
+    Drake, C. et al. (2015). Smartphone use and sleep quality. <em>Journal of Clinical Sleep Medicine</em>. Thomée, S. (2018). Mobile phone use and mental health. <em>Current Psychiatry Reports</em>.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 5: DAY 3 — DINNER TIMING             -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <div class="day-header">
+    <div class="day-number">03</div>
+    <h2>Dinner 3 Hours Before Bed</h2>
+  </div>
+
+  <div class="day-summary">
+    <p>Eat your last meal at least <span class="accent">3 hours before sleep</span>. If dinner is at 9 pm and sleep at 11 pm, shift dinner to 8 pm — or shift sleep later if the schedule allows.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>Why this works</h3>
+    <p>Eating triggers insulin release and keeps metabolic processes running at a rate incompatible with deep sleep. Karine Spiegel's research at the University of Chicago showed that late eating elevates cortisol and suppresses growth hormone release — both of which directly damage slow-wave sleep. Beyond hormones: digestion raises core body temperature (working against Day 1), and lying down after a full meal increases the risk of acid reflux that fragments sleep without the sleeper always recognising it as reflux.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>The protocol</h3>
+    <ul>
+      <li>3-hour gap minimum between last bite and lights-out</li>
+      <li>If late hunger strikes: a small, high-tryptophan snack is fine — a handful of walnuts, a slice of turkey, or a small bowl of oats</li>
+      <li>Avoid high-GI carbohydrates in the final meal — white rice, white bread, and sugary foods cause <span class="accent">cortisol rebounds 2–3 hours later</span>, waking you in the night</li>
+      <li>Front-load calories: larger lunch, lighter dinner</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>Common mistakes</h3>
+    <ul>
+      <li>Thinking a "light" late meal is fine — timing and glycemic index matter more than portion size</li>
+      <li>Skipping dinner entirely and then being too hungry to sleep</li>
+      <li>Having a large dessert or sweet drink after an otherwise good dinner</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>What to expect</h3>
+    <p>Blood sugar regulation normalises within two to three nights of consistent earlier dinners. Night wakings between 2–4 am — often cortisol rebounds from late eating — typically reduce within the first week.</p>
+  </div>
+
+  <div class="track-box">
+    <div class="label">Track it</div>
+    <p>Did I finish eating at least 3 hours before sleep tonight? &nbsp;&nbsp; Yes &nbsp;/&nbsp; No</p>
+  </div>
+
+  <div class="citation">
+    Spiegel, K. et al. (2004). Brief communication: Sleep curtailment in healthy young men. <em>Annals of Internal Medicine</em>. Crispim, C.A. et al. (2011). Relationship between food intake and sleep pattern. <em>Journal of Clinical Sleep Medicine</em>.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 6: DAY 4 — ALCOHOL TIMING            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <div class="day-header">
+    <div class="day-number">04</div>
+    <h2>Last Drink 3 Hours Before Bed</h2>
+  </div>
+
+  <div class="day-summary">
+    <p>Stop drinking alcohol at least <span class="accent">3 hours before sleep</span>. Count forward from your last drink to your planned bedtime and adjust accordingly.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>Why this works</h3>
+    <p>Alcohol makes you fall asleep faster — that's true. The damage happens later. Irshaad Ebrahim's 2013 and 2018 meta-analyses showed that even moderate alcohol suppresses REM sleep in the second half of the night. REM is where emotional memory processing, learning consolidation, and mood regulation occur. The sedation from alcohol is not the same as sleep — it's closer to anaesthesia. You lose consciousness faster but recover less. The three-hour gap allows your liver to metabolise most of the alcohol before your sleep architecture enters its most vulnerable phase.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>The protocol</h3>
+    <ul>
+      <li>Minimum 3-hour gap between last drink and lights-out</li>
+      <li>One standard drink (175ml wine, 330ml beer, 25ml spirits) takes approximately <span class="accent">1 hour to metabolise</span> for most adults — plan accordingly</li>
+      <li>Drink water between alcoholic drinks to slow absorption</li>
+      <li>Avoid drinking on an empty stomach — food slows alcohol absorption and moderates the spike</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>Common mistakes</h3>
+    <ul>
+      <li>Believing "just one glass before bed" is harmless — even low doses measurably suppress REM in controlled studies</li>
+      <li>Using alcohol as a sleep aid: it accelerates onset but fragments quality</li>
+      <li>Not accounting for body weight and metabolism variability in your timing calculation</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>What to expect</h3>
+    <p>People who habitually drink close to bedtime typically notice dramatically different mornings within three to five nights of stopping. Some notice vivid dreams returning — a sign that REM is resuming normally.</p>
+  </div>
+
+  <div class="track-box">
+    <div class="label">Track it</div>
+    <p>Did I have my last drink 3+ hours before sleep (or not drink at all)? &nbsp;&nbsp; Yes &nbsp;/&nbsp; No</p>
+  </div>
+
+  <div class="citation">
+    Ebrahim, I.O. et al. (2013). Alcohol and sleep: Effects on normal sleep. <em>Alcoholism: Clinical and Experimental Research</em>. Ebrahim et al. (2018). <em>PLOS ONE</em>.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 7: DAY 5 — WARM FOOT BATH           -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <div class="day-header">
+    <div class="day-number">05</div>
+    <h2>Warm Foot Bath or Shower</h2>
+  </div>
+
+  <div class="day-summary">
+    <p>60–90 minutes before sleep, soak your feet in warm water (<span class="accent">38–40°C</span>) for 15–20 minutes — or take a warm shower for 10 minutes. Then move to your cool bedroom.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>Why this works</h3>
+    <p>This is the most counterintuitive ritual here, and one of the most effective. A warm soak causes blood vessels near the skin surface to dilate. Blood rushes to the periphery. When you step into a cooler room, your body rapidly redistributes that heat outward, accelerating the core temperature drop that signals sleep onset. A 2019 meta-analysis by Haghayegh et al. in <em>Sleep Medicine Reviews</em> — 13 studies, over 1,000 participants — found that warm bathing taken 1–2 hours before bed reduced sleep onset latency by an average of <span class="accent">10 minutes</span>. A clinically meaningful reduction.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>The protocol</h3>
+    <ul>
+      <li>Temperature: 38–40°C (comfortably warm, not scalding)</li>
+      <li>Duration: 15–20 minutes for foot bath; 10 minutes for shower</li>
+      <li>Timing: 60–90 minutes before sleep — not immediately before</li>
+      <li>After: move to your cool bedroom and do wind-down activities there</li>
+      <li>Optional: a few drops of lavender essential oil in the foot bath</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>Common mistakes</h3>
+    <ul>
+      <li>Making the bath too hot (above 42°C) — this delays rather than accelerates cooling</li>
+      <li>Going directly to bed after the bath — you need the full cooling window</li>
+      <li>Skipping because it feels like effort — a foot basin costs £5 and takes 3 minutes to fill</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>What to expect</h3>
+    <p>Most people notice a subjective sense of sleepiness following the temperature drop within the first one to two uses. The effect is strongest when combined with a cool bedroom (Day 1).</p>
+  </div>
+
+  <div class="track-box">
+    <div class="label">Track it</div>
+    <p>Did I take a warm foot bath or shower 60–90 minutes before sleep? &nbsp;&nbsp; Yes &nbsp;/&nbsp; No</p>
+  </div>
+
+  <div class="citation">
+    Haghayegh, S. et al. (2019). Before-bedtime passive body heating by warm shower or bath to improve sleep. <em>Sleep Medicine Reviews</em>, 46, 124–135.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 8: DAY 6 — BREATHING PROTOCOL       -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <div class="day-header">
+    <div class="day-number">06</div>
+    <h2>3-Minute Breathing Protocol</h2>
+  </div>
+
+  <div class="day-summary">
+    <p>In the 10 minutes before lights-out: inhale for <span class="accent">4 counts</span>, exhale for <span class="accent">6–8 counts</span>. Repeat for 3 minutes. The exhale is the key.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>Why this works</h3>
+    <p>A longer exhale than inhale activates the parasympathetic nervous system via the vagus nerve — a process called vagal tone enhancement. During a long exhale, heart rate slows and the brain receives a direct signal that it is safe to downregulate. Research by Jerath et al. and replicated in multiple clinical settings shows that slow-paced breathing (fewer than 8 breaths per minute) reduces cortisol and activates the prefrontal cortex's inhibitory control over the amygdala — quieting the threat-detection system that keeps many people's minds racing at bedtime. Three minutes is sufficient to produce a measurable heart rate variability shift.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>The protocol</h3>
+    <ul>
+      <li>Sit upright or lie on your back with hands on your abdomen</li>
+      <li>Inhale slowly through the nose for <strong>4 counts</strong> — abdomen rises first</li>
+      <li>Pause briefly (1 count)</li>
+      <li>Exhale slowly through the mouth for <strong>6–8 counts</strong> — longer than the inhale</li>
+      <li>Repeat for 3 minutes (approximately 5–6 cycles per minute)</li>
+      <li>If 4/6 feels too slow to start: begin at 4/5 and extend over several nights</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>Common mistakes</h3>
+    <ul>
+      <li>Breathing from the chest — your belly should rise first</li>
+      <li>Exhaling through the nose — mouth exhales are slower and more effective for vagal activation</li>
+      <li>Stopping after 90 seconds because thoughts intrude — thoughts will intrude; return to the count</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>What to expect</h3>
+    <p>A subjective sense of calm typically follows the first session. The physiological benefit compounds over repeated nights. This is a skill — the effect on sleep onset strengthens with consistent practice over the first week.</p>
+  </div>
+
+  <div class="track-box">
+    <div class="label">Track it</div>
+    <p>Did I complete at least 3 minutes of 4/6–8 breathing before sleep tonight? &nbsp;&nbsp; Yes &nbsp;/&nbsp; No</p>
+  </div>
+
+  <div class="citation">
+    Jerath, R. et al. (2015). Self-regulation of breathing as a primary treatment for anxiety. <em>Applied Psychophysiology and Biofeedback</em>. Brown, R.P. & Gerbarg, P.L. (2012). <em>The Healing Power of the Breath</em>. Shambhala.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 9: DAY 7 — SLEEP POSITION           -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <div class="day-header">
+    <div class="day-number">07</div>
+    <h2>Pillow Height &amp; Sleep Position</h2>
+  </div>
+
+  <div class="day-summary">
+    <p>Try sleeping on your <span class="accent">left side</span> with a pillow between your knees and your pillow adjusted to keep your spine neutral. If you wake in another position, gently return.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>Why this works</h3>
+    <p>Sleep position is the most underexamined variable in consumer sleep advice. Gordon et al. (2010) found that pillow height mismatch creates cervical spine flexion that triggers micro-arousals without the sleeper being consciously aware of them. Skarpsno et al. (2017) — 1,322 adults in the HUNT study — found supine sleepers reported significantly higher rates of non-restorative sleep compared to side sleepers. Left-side sleeping additionally aids gastric emptying and reduces acid reflux risk. There is also emerging research suggesting lateral sleep positions may enhance glymphatic clearance — the brain's waste-removal system.</p>
+  </div>
+
+  <div class="section-block">
+    <h3>The protocol</h3>
+    <ul>
+      <li>Pillow height: when lying on your side, pillow should fill the gap between ear and mattress — neck horizontal, not angled</li>
+      <li>Place a firm pillow between your knees to prevent the pelvis rotating and pulling on the lower back</li>
+      <li>Left side preferred; right side is fine — both are better than supine for most adults</li>
+      <li>Shoulder pain: place a thin pillow under your waist to reduce lateral pressure</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>Common mistakes</h3>
+    <ul>
+      <li>Using a pillow that's too thick when side-sleeping (creates upward neck tilt)</li>
+      <li>Sleeping with arms tucked under the pillow — compresses shoulder nerves</li>
+      <li>Assuming you can't control position — setting your starting position changes where you spend most of the night</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h3>What to expect</h3>
+    <p>Neck and shoulder comfort often improves within one to two nights of correcting pillow height. Broader sleep quality changes from position take up to a week as the body habituates to the new orientation.</p>
+  </div>
+
+  <div class="track-box">
+    <div class="label">Track it</div>
+    <p>Did I set up my pillow correctly and start in left-side position? &nbsp;&nbsp; Yes &nbsp;/&nbsp; No</p>
+  </div>
+
+  <div class="citation">
+    Gordon, S.J. et al. (2010). Pillow use and neck pain: A pilot study. <em>Manual Therapy</em>. Skarpsno, E.S. et al. (2017). Sleep positions and nocturnal body movements. <em>Nature and Science of Sleep</em>.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PAGE 10: WHAT'S NEXT + TRACKER           -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="brand-pill">ManyRituals ✓</div>
+
+  <h2>What's Next</h2>
+
+  <p>You've just run a structured, seven-variable sleep experiment on yourself. Most people never systematically examine their sleep environment. You have.</p>
+
+  <h3>Your 7-Night Tracker</h3>
+  <p style="font-size:12px; margin-bottom: 8px; color: rgba(44,42,38,0.6);">Review your week before deciding what to keep permanently.</p>
+
+  <table class="tracker-table">
+    <thead>
+      <tr>
+        <th>Ritual</th>
+        <th>N1</th>
+        <th>N2</th>
+        <th>N3</th>
+        <th>N4</th>
+        <th>N5</th>
+        <th>N6</th>
+        <th>N7</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cool bedroom (≤19°C)</td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+      </tr>
+      <tr>
+        <td>Phone out of bedroom</td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+      </tr>
+      <tr>
+        <td>Dinner 3h before bed</td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+      </tr>
+      <tr>
+        <td>Last drink 3h before bed</td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+      </tr>
+      <tr>
+        <td>Warm bath or shower</td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+      </tr>
+      <tr>
+        <td>Breathing protocol (4/6)</td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+      </tr>
+      <tr>
+        <td>Sleep position (left side)</td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+        <td><span class="check-box"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="closing-note">
+    <p>Keep what moved the needle. Drop what felt forced. Sleep is individual — some people are profoundly sensitive to temperature; others find the biggest shift comes from alcohol timing. Run the experiment honestly and you'll have real data about your own biology.</p>
+    <p>If you want to go further: the <em>ManyRituals Sleep Reset Guide</em> goes deeper into every variable here, adds 23 additional rituals, and includes a full 30-night stacking protocol. Deeper research, more complete protocols. Coming soon.</p>
+    <p>If you're on the ManyRituals email list, you'll hear about it first.</p>
+  </div>
+
+  <div class="logo-final">ManyRituals — Sleep research, decoded.</div>
+</div>
+
+</body>
+</html>
