@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 7-Night Sleep Reset — Free Guide | ManyRituals</title>
+  <meta name="description" content="Seven research-backed sleep rituals, one per night. Built from published sleep science — not wellness trends. Free download." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #F4EFE6;
+      --charcoal: #2C2A26;
+      --clay: #C8876B;
+      --clay-light: rgba(200,135,107,0.12);
+      --white: #FFFFFF;
+      --muted: rgba(44,42,38,0.55);
+      --border: rgba(44,42,38,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--charcoal);
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .logo-dot {
+      color: var(--clay);
+    }
+
+    .nav-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: clamp(24px, 3.5vw, 32px);
+      line-height: 1.2;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 1.3;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    p.muted {
+      color: var(--muted);
+    }
+
+    .eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .accent {
+      color: var(--clay);
+      font-style: italic;
+    }
+
+    /* ── EMAIL FORM ── */
+    .form-wrap {
+      display: flex;
+      gap: 10px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .form-wrap input[type="email"] {
+      flex: 1;
+      min-width: 240px;
+      padding: 14px 18px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: var(--charcoal);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-wrap input[type="email"]::placeholder {
+      color: rgba(44,42,38,0.35);
+    }
+
+    .form-wrap input[type="email"]:focus {
+      border-color: var(--clay);
+    }
+
+    .btn {
+      padding: 14px 28px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--clay);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.1s;
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 0.01em;
+    }
+
+    .btn:hover {
+      background: #B5735A;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .trust-line {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+      margin-bottom: 0;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 80px 0 72px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--clay);
+      border-radius: 50%;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(44,42,38,0.75);
+      max-width: 560px;
+      margin-bottom: 0;
+    }
+
+    .mockup-placeholder {
+      background: var(--white);
+      border: 1.5px dashed rgba(44,42,38,0.2);
+      border-radius: 12px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 48px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ── PROMISES (3 COLUMNS) ── */
+    #promises {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 32px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .promise-card {
+      padding: 28px 24px;
+      border-right: 1px solid var(--border);
+    }
+
+    .promise-card:last-child {
+      border-right: none;
+    }
+
+    .promise-icon {
+      font-size: 22px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .promise-card h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .promise-card p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── WHY DIFFERENT ── */
+    #why {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .why-block {
+      margin-top: 32px;
+    }
+
+    .why-block p {
+      margin-bottom: 20px;
+    }
+
+    .not-list {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 24px;
+    }
+
+    .not-list p.label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 12px;
+    }
+
+    .not-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .not-list ul li {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(44,42,38,0.7);
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .not-list ul li:last-child {
+      margin-bottom: 0;
+    }
+
+    .not-list ul li::before {
+      content: '×';
+      position: absolute;
+      left: 0;
+      color: var(--clay);
+      font-weight: 600;
+    }
+
+    /* ── PREVIEW ── */
+    #preview {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .preview-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 36px 40px;
+      margin-top: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preview-card::before {
+      content: '01';
+      position: absolute;
+      top: -10px;
+      right: 32px;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 80px;
+      color: var(--clay);
+      opacity: 0.08;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .preview-card .day-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .preview-card h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .preview-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .preview-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+
+    .preview-card ul li {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--charcoal);
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .preview-card ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--clay);
+    }
+
+    .preview-fade {
+      position: relative;
+    }
+
+    .preview-fade::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--white));
+      pointer-events: none;
+    }
+
+    .preview-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--clay);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: 4px;
+      transition: gap 0.2s;
+    }
+
+    .preview-cta:hover {
+      gap: 10px;
+    }
+
+    /* ── FINAL CTA ── */
+    #final-cta {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    #final-cta .container {
+      max-width: 560px;
+    }
+
+    #final-cta h2 {
+      margin-bottom: 12px;
+    }
+
+    #final-cta p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    #final-cta .form-wrap {
+      justify-content: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      section {
+        padding: 56px 0;
+      }
+
+      #hero {
+        padding: 56px 0;
+      }
+
+      .promise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .promise-card {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .promise-card:last-child {
+        border-bottom: none;
+      }
+
+      .preview-card {
+        padding: 28px 24px;
+      }
+
+      .form-wrap {
+        flex-direction: column;
+      }
+
+      .form-wrap input[type="email"] {
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="container">
+    <a href="#" class="logo">Many<span class="logo-dot">Rituals</span></a>
+    <span class="nav-tag">Sleep research, decoded</span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Free — no credit card required
+    </div>
+
+    <h1>You're sleeping<br>the wrong way.<br><em style="color:var(--clay);">Here's the fix.</em></h1>
+
+    <p class="hero-sub">Most sleep advice is vague, symptomatic, or wrong. This guide covers the <strong>7 highest-leverage variables</strong> in sleep science — one ritual per night, stacked over a week, grounded in published research.</p>
+
+    <!-- EMAIL FORM — wire to ConvertKit or your platform -->
+    <form class="form-wrap" action="#" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
+      <button type="submit" class="btn">Get the free guide →</button>
+    </form>
+    <p class="trust-line">No spam. Unsubscribe anytime. The guide goes straight to your inbox.</p>
+
+    <!-- PDF MOCKUP HERE -->
+    <div class="mockup-placeholder">
+      <!-- PDF MOCKUP HERE -->
+      <div>
+        <div style="font-size:13px; font-weight:500; margin-bottom:4px; color: rgba(44,42,38,0.4);">PDF cover image</div>
+        <div style="font-size:12px; color: rgba(44,42,38,0.3);">Replace this placeholder with your cover mockup</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3 PROMISES ── -->
+<section id="promises">
+  <div class="container">
+    <span class="eyebrow">What you'll get</span>
+    <h2>Seven nights. Seven variables.<br>One per night.</h2>
+
+    <div class="promise-grid">
+      <div class="promise-card">
+        <span class="promise-icon">📖</span>
+        <h3>What you'll learn</h3>
+        <p>The mechanisms behind each ritual — why 18°C matters, what alcohol actually does to REM, and why dinner timing causes 2am wake-ups.</p>
+      </div>
+      <div class="promise-card">
+        <span class="promise-icon">🌙</span>
+        <h3>What you'll get</h3>
+        <p>7 specific, numbered protocols with real temperatures, timings, and durations. No vague advice. Every ritual cites the researchers behind it.</p>
+      </div>
+      <div class="promise-card">
+        <span class="promise-icon">✓</span>
+        <h3>What changes</h3>
+        <p>Most readers notice faster sleep onset by Night 3. Fewer night wakings by Night 5. Calmer mornings and more restorative sleep by Night 7.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY DIFFERENT ── -->
+<section id="why">
+  <div class="container">
+    <span class="eyebrow">Why this is different</span>
+    <h2>Sleep architecture,<br>not sleep hacks.</h2>
+
+    <div class="why-block">
+      <p>Most sleep content treats the symptom — you can't fall asleep, so here's a supplement. Here's a meditation. Here's a lavender pillow spray. These are symptomatic interventions. They address the surface feeling without touching the structure underneath.</p>
+
+      <p>Sleep quality is determined by what researchers call <span class="accent">sleep architecture</span> — the physical, hormonal, and neurological conditions your body needs to move through sleep stages correctly. Temperature. Cortisol timing. REM pressure. Adenosine clearance. Most generic advice doesn't touch these things, because explaining them requires understanding why the body sleeps, not just how to feel sleepier.</p>
+
+      <p>ManyRituals exists because that gap is large and mostly unfilled. The 7-night guide is an architectural intervention — you're adjusting the conditions that govern when and how deeply sleep occurs. The researchers cited in this guide include Matthew Walker, Karine Spiegel, Irshaad Ebrahim, Shahab Haghayegh, Colin Espie, and others who have spent careers measuring these variables in controlled studies.</p>
+
+      <div class="not-list">
+        <p class="label">This isn't</p>
+        <ul>
+          <li>A cure-all for every sleep problem</li>
+          <li>A supplement guide or an affiliate recommendation list</li>
+          <li>A 30-day challenge or a long-term commitment</li>
+          <li>Generic "limit screen time before bed" advice you've read fifty times</li>
+          <li>Appropriate for clinical conditions — sleep apnea, clinical insomnia, perimenopause disruption all require clinical assessment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PREVIEW ── -->
+<section id="preview">
+  <div class="container">
+    <span class="eyebrow">A taste of Night 1</span>
+    <h2>Bedroom Temperature</h2>
+    <p class="muted" style="margin-bottom: 0;">Here's an excerpt from the first ritual in the guide.</p>
+
+    <div class="preview-card">
+      <span class="day-label">Day 1 — Tonight's ritual</span>
+      <h3>Lower your bedroom to 18–19°C before sleep.</h3>
+
+      <div class="preview-fade">
+        <p>Your core body temperature needs to drop by approximately <span class="accent">1–1.5°C</span> to initiate and maintain sleep. This is not optional — it is a hardwired biological requirement. Matthew Walker's lab at UC Berkeley has documented this extensively: when subjects slept in rooms above 22°C, their slow-wave (deep) sleep was measurably reduced compared to nights at 18°C.</p>
+
+        <p>The mechanism is vasodilation — your hands and feet act as radiators, releasing heat to drop your core. A warm room prevents this process. A cool room accelerates it.</p>
+
+        <p style="font-weight:500; font-size:13.5px; margin-bottom: 8px;">The protocol:</p>
+        <ul>
+          <li>Set thermostat to <strong>18°C (65°F)</strong> or as close as your system allows</li>
+          <li>Direct a fan across the bed, not at your face</li>
+          <li>Wear socks if your feet feel cold — warm feet speed core cooling</li>
+        </ul>
+      </div>
+
+      <a href="#hero" class="preview-cta">Get all 7 days free →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section id="final-cta">
+  <div class="container">
+    <span class="eyebrow">Free download</span>
+    <h2>Start tonight.<br>It takes 7 nights.</h2>
+    <p>Enter your email and the guide goes straight to your inbox — along with occasional research-backed content from ManyRituals. No spam, no supplement pitches, no wellness woo.</p>
+
+    <!-- EMAIL FORM — wire to ConvertKit or your platform -->
+    <form class="form-wrap" action="#" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
+      <button type="submit" class="btn">Get the free guide →</button>
+    </form>
+    <p class="trust-line">No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <p>© ManyRituals. Sleep research, decoded.</p>
+    <p>Built from published science. No affiliates. No supplements.</p>
+  </div>
+</footer>
+
+</body>
+</html>
