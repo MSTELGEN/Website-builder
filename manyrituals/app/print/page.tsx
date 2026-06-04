@@ -163,7 +163,7 @@ export default function PrintPage() {
       <style>{`
         /* ── Screen styles ── */
         .print-root {
-          background: #f3ece0;
+          background: #14171c;
           min-height: 100vh;
           font-family: 'Hanken Grotesk', system-ui, sans-serif;
           color: #14171c;
@@ -207,13 +207,16 @@ export default function PrintPage() {
         .print-doc {
           max-width: 860px;
           margin: 0 auto;
-          padding: 20px;
+          padding: 16px;
+        }
+        @media (min-width: 640px) {
+          .print-doc { padding: 24px 20px; }
         }
         .print-page {
           background: #fff;
           border-radius: 8px;
-          margin-bottom: 20px;
-          box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+          margin-bottom: 16px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.25);
         }
 
         /* Cover */
@@ -223,8 +226,11 @@ export default function PrintPage() {
           align-items: center;
         }
         .print-cover-inner {
-          padding: 56px 60px;
+          padding: 36px 24px;
           width: 100%;
+        }
+        @media (min-width: 640px) {
+          .print-cover-inner { padding: 56px 60px; }
         }
         .print-kicker {
           font-size: 0.7rem;
@@ -283,7 +289,10 @@ export default function PrintPage() {
         }
 
         /* Sections */
-        .print-section { padding: 48px 60px; }
+        .print-section { padding: 28px 24px; }
+        @media (min-width: 640px) {
+          .print-section { padding: 48px 60px; }
+        }
         .print-h2 {
           font-family: 'Fraunces', Georgia, serif;
           font-size: clamp(1.6rem, 4vw, 2.4rem);
@@ -303,9 +312,12 @@ export default function PrintPage() {
         /* Expect grid */
         .print-expect-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 14px;
-          margin-top: 28px;
+          grid-template-columns: 1fr;
+          gap: 10px;
+          margin-top: 20px;
+        }
+        @media (min-width: 560px) {
+          .print-expect-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
         }
         .print-expect-card {
           border: 1px solid rgba(143,166,140,0.3);
@@ -368,9 +380,12 @@ export default function PrintPage() {
         /* Two col */
         .print-two-col {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 24px;
+          grid-template-columns: 1fr;
+          gap: 20px;
           margin-bottom: 20px;
+        }
+        @media (min-width: 560px) {
+          .print-two-col { grid-template-columns: 1fr 1fr; }
         }
         .print-section-label {
           font-size: 0.65rem;

@@ -118,8 +118,31 @@ export default function PrintGate({ children }: { children: React.ReactNode }) {
             <PrintButton />
           </div>
         </div>
+        {/* Print hint — screen only */}
+        <div className="print-hint">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style={{flexShrink:0}}>
+            <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2"/>
+            <path d="M7 6v4M7 4.5v.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+          </svg>
+          Use <strong>Ctrl+P</strong> (Windows) or <strong>⌘P</strong> (Mac) to save as PDF or print the tick-box tracker on paper.
+        </div>
       </div>
       {children}
+      <style>{`
+        .print-hint {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 20px;
+          font-size: 0.78rem;
+          color: rgba(243,236,224,0.45);
+          border-top: 1px solid rgba(243,236,224,0.07);
+          max-width: 860px;
+          margin: 0 auto;
+        }
+        .print-hint strong { color: rgba(243,236,224,0.7); font-weight: 500; }
+        @media print { .print-hint { display: none !important; } }
+      `}</style>
     </>
   );
 }

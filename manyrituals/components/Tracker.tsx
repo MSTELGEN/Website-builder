@@ -277,10 +277,11 @@ export default function Tracker() {
         </div>
 
         {/* Full 7×7 grid */}
+        <p className="text-xs text-paper/30 mb-2 md:hidden">← scroll to see all nights</p>
         <div className="overflow-x-auto -mx-5 px-5">
-          <div className="min-w-[460px]">
+          <div className="min-w-[400px]">
             {/* Column headers */}
-            <div className="grid gap-1.5 mb-2" style={{ gridTemplateColumns: "minmax(130px,1fr) repeat(7, 1fr)" }}>
+            <div className="grid gap-1.5 mb-2" style={{ gridTemplateColumns: "minmax(100px,140px) repeat(7, 1fr)" }}>
               <div />
               {NIGHTS.map((n, i) => (
                 <div
@@ -299,9 +300,9 @@ export default function Tracker() {
               <div
                 key={ri}
                 className="grid gap-1.5 mb-1.5"
-                style={{ gridTemplateColumns: "minmax(130px,1fr) repeat(7, 1fr)" }}
+                style={{ gridTemplateColumns: "minmax(100px,140px) repeat(7, 1fr)" }}
               >
-                <div className="flex items-center text-xs text-paper/55 pr-2 truncate">
+                <div className="flex items-center text-xs text-paper/55 pr-2 truncate leading-tight">
                   {label}
                 </div>
                 {NIGHTS.map((_, ni) => {
@@ -343,7 +344,7 @@ export default function Tracker() {
             ))}
 
             {/* Per-night completion bars */}
-            <div className="grid gap-1.5 mt-3" style={{ gridTemplateColumns: "minmax(130px,1fr) repeat(7, 1fr)" }}>
+            <div className="grid gap-1.5 mt-3" style={{ gridTemplateColumns: "minmax(100px,140px) repeat(7, 1fr)" }}>
               <div className="text-xs text-paper/30 flex items-end pb-1">Done</div>
               {NIGHTS.map((_, ni) => {
                 const count = nightCompletion(state, ni);

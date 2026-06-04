@@ -31,7 +31,7 @@ export default function Home() {
           </p>
 
           <h1
-            className="text-5xl md:text-7xl font-light leading-none text-paper mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl font-light leading-[1.05] md:leading-none text-paper mb-6"
             style={{ fontFamily: "Fraunces, Georgia, serif" }}
           >
             The 7-Night
