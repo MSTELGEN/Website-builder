@@ -49,28 +49,18 @@ export default function Home() {
             actually happening in your body.
           </p>
 
-          {/* Email capture */}
-          <div className="max-w-lg">
-            <EmailCapture variant="hero" />
+          {/* Email capture — with value list (the reason to subscribe) */}
+          <div className="max-w-lg rounded-2xl border border-paper/10 bg-paper/[0.03] p-6">
+            <p className="text-paper/80 text-sm font-medium mb-1">
+              Get the whole reset, free — straight to your inbox:
+            </p>
+            <EmailCapture variant="hero" showValueList />
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <p className="text-paper/30 text-sm">
-              Or scroll down to read right now — no email required.
-            </p>
-            <a
-              href="/print"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-lg border border-paper/20 hover:border-paper/40 px-4 py-2 text-sm text-paper/55 hover:text-paper/80 transition-colors duration-200"
-            >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M3.5 1h7v3.5H3.5zM2.5 4.5h9a1.5 1.5 0 011.5 1.5v3.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 011 9.5V6a1.5 1.5 0 011.5-1.5zM3.5 9h7v3h-7z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
-                <circle cx="10" cy="7.2" r="0.6" fill="currentColor" />
-              </svg>
-              Download PDF
-            </a>
-          </div>
+          <p className="mt-6 text-paper/30 text-sm max-w-lg">
+            Prefer to read first? Scroll down — the full guide is right here on the page. The
+            printable PDF, tracker, and Night 8 are the part we send by email.
+          </p>
         </div>
 
         {/* Scroll indicator */}
