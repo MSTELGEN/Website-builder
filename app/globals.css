@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap');
+
+:root {
+  --ink: #14171c;
+  --ink-soft: #1d2128;
+  --paper: #f3ece0;
+  --cream: #faf5ea;
+  --ember: #d98a4e;
+  --ember-deep: #bf6f38;
+  --sage: #8fa68c;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--paper);
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Scroll reveal utility (JS adds .revealed) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Night number style */
+.night-num {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(5rem, 16vw, 10rem);
+  line-height: 0.88;
+  color: var(--ember);
+  opacity: 0.18;
+  user-select: none;
+  pointer-events: none;
+  font-style: italic;
+}
+
+/* Tracker cell */
+.tracker-cell {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+.tracker-cell:hover {
+  transform: scale(1.08);
+}
+.tracker-cell.done {
+  background: var(--ember);
+}
+.tracker-cell.empty {
+  background: rgba(243, 236, 224, 0.08);
+  border: 1px solid rgba(243, 236, 224, 0.12);
+}
