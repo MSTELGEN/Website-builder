@@ -179,7 +179,7 @@ export default function Tracker() {
     <section id="tracker" className="py-20 px-5 scroll-mt-20" aria-label="Sleep reset tracker">
       <div className="mx-auto max-w-5xl">
         {/* Header */}
-        <div className="mb-10 reveal">
+        <div className="mb-10">
           <p className="text-ember text-sm font-medium tracking-widest uppercase mb-2">
             Your tracker
           </p>
@@ -223,7 +223,7 @@ export default function Tracker() {
         </div>
 
         {/* Tonight's focus */}
-        <div className="mb-10 rounded-xl border border-ember/20 bg-ember/5 p-6 reveal">
+        <div className="mb-10 rounded-xl border border-ember/20 bg-ember/5 p-6">
           <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
             <h3 className="text-lg font-medium text-paper">
               Night {todayNight + 1} — tonight&apos;s rituals
@@ -277,7 +277,7 @@ export default function Tracker() {
         </div>
 
         {/* Full 7×7 grid */}
-        <div className="reveal overflow-x-auto -mx-5 px-5">
+        <div className="overflow-x-auto -mx-5 px-5">
           <div className="min-w-[460px]">
             {/* Column headers */}
             <div className="grid gap-1.5 mb-2" style={{ gridTemplateColumns: "minmax(130px,1fr) repeat(7, 1fr)" }}>
