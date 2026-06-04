@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { isSubscribed } from "@/lib/subscription";
+import { isSubscribed, setSubscribed } from "@/lib/subscription";
 import EmailCapture from "@/components/EmailCapture";
 import PrintButton from "@/components/PrintButton";
 
@@ -9,6 +9,16 @@ export default function PrintGate({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    // Visitors arriving from the Kit confirmation/incentive email carry ?unlocked=1.
+    // Honour it (and remember them) so the email link works on any device.
+    const fromEmail =
+      new URLSearchParams(window.location.search).get("unlocked") === "1";
+    if (fromEmail) {
+      setSubscribed();
+      setUnlocked(true);
+      setReady(true);
+      return;
+    }
     setUnlocked(isSubscribed());
     setReady(true);
     const onSub = () => setUnlocked(true);
