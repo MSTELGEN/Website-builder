@@ -151,7 +151,7 @@ export default function PrintPage() {
         <div className="print-back-page print-page">
           <p className="print-back-brand">ManyRituals</p>
           <p className="print-back-tagline">Sleep research, decoded.</p>
-          <p className="print-back-url">manyrituals.com</p>
+          <p className="print-back-url">manyrituals.vercel.app</p>
           <p className="print-back-legal">
             Your email is never sold. Every email has a one-click unsubscribe.<br />
             This guide is not medical advice. © {new Date().getFullYear()} ManyRituals.

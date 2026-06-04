@@ -149,7 +149,7 @@ export default function Tracker() {
     ctx.textBaseline = "alphabetic";
     ctx.fillStyle = "rgba(243,236,224,0.3)";
     ctx.font = "400 22px sans-serif";
-    ctx.fillText("manyrituals.com", W / 2, H - 40);
+    ctx.fillText("manyrituals.vercel.app", W / 2, H - 40);
 
     try {
       canvas.toBlob((blob) => {
