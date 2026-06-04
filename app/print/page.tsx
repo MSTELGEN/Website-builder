@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { nights } from "@/lib/nights";
-import PrintButton from "@/components/PrintButton";
+import PrintGate from "@/components/PrintGate";
 
 export const metadata: Metadata = {
   title: "The 7-Night Sleep Reset — Printable Guide",
@@ -11,17 +11,7 @@ export const metadata: Metadata = {
 export default function PrintPage() {
   return (
     <div className="print-root">
-      {/* Print button — hidden when printing */}
-      <div className="no-print print-toolbar">
-        <div className="print-toolbar-inner">
-          <span className="print-brand">ManyRituals</span>
-          <div className="print-toolbar-actions">
-            <a href="/" className="print-back">← Back to guide</a>
-            <PrintButton />
-          </div>
-        </div>
-      </div>
-
+      <PrintGate>
       <div className="print-doc">
         {/* Cover */}
         <div className="print-cover print-page">
@@ -168,6 +158,7 @@ export default function PrintPage() {
           </p>
         </div>
       </div>
+      </PrintGate>
 
       <style>{`
         /* ── Screen styles ── */
