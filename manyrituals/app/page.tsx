@@ -57,6 +57,23 @@ export default function Home() {
             <EmailCapture variant="hero" showValueList />
           </div>
 
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
+            <a
+              href="#tracker"
+              className="group inline-flex items-center gap-2 rounded-full border border-ember/40 bg-ember/[0.07] px-5 py-2.5 text-sm font-medium text-ember hover:bg-ember/15 transition-colors duration-200"
+            >
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.3" />
+                <rect x="9" y="1" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.3" fill="currentColor" />
+                <rect x="1" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.3" fill="currentColor" />
+                <rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.3" />
+              </svg>
+              Try the 7-night tracker
+              <span className="transition-transform duration-200 group-hover:translate-y-0.5" aria-hidden="true">↓</span>
+            </a>
+            <span className="text-paper/30 text-xs">free · no email needed to try it</span>
+          </div>
+
           <p className="mt-6 text-paper/30 text-sm max-w-lg">
             Prefer to read first? Scroll down — the full guide is right here on the page. The
             printable PDF, tracker, and Night 8 are the part we send by email.
