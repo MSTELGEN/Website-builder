@@ -78,7 +78,7 @@ export default function EmailCapture({
         <p className="text-paper/60 text-sm mt-1">
           {isWaitlist
             ? "We'll reach out when The ManyRituals Sleep System is ready."
-            : "Check your inbox to confirm, then grab your downloads below. Night 1 lands tonight."}
+            : "Your guide is unlocked. Check your spam folder if the email doesn't arrive — Night 1 starts tonight."}
         </p>
       </div>
     );
