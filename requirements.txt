@@ -1,0 +1,8 @@
+# Core pipeline needs only ffmpeg (a system install, not pip).
+# These are optional features:
+
+# --captions  (auto transcription)
+faster-whisper
+
+# --hook  (Claude-generated hook + post caption)
+anthropic
