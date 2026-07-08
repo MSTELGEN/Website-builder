@@ -1,88 +1,95 @@
 "use client";
-import Link from "next/link";
+
 import { useState } from "react";
+import { shop } from "@/lib/shop";
+import OpenStatus from "./OpenStatus";
 
 const links = [
-  { href: "/#guide", label: "The Guide" },
-  { href: "/#tracker", label: "Tracker" },
-  { href: "/references", label: "References" },
-  { href: "/#waitlist", label: "Waitlist" },
+  { href: "#assortiment", label: "Assortiment" },
+  { href: "#openingstijden", label: "Openingstijden" },
+  { href: "#bezorgen", label: "Bezorgen" },
+  { href: "#locatie", label: "Locatie" },
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50"
-      style={{
-        background: "linear-gradient(to bottom, rgba(20,23,28,0.95) 0%, rgba(20,23,28,0) 100%)",
-        backdropFilter: "blur(4px)",
-      }}
-    >
-      <nav
-        className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4"
-        aria-label="Main navigation"
-      >
-        <Link
-          href="/"
-          className="font-display text-lg font-medium text-paper hover:text-ember transition-colors duration-200"
-          style={{ fontFamily: "Fraunces, Georgia, serif" }}
-        >
-          ManyRituals
-        </Link>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-night/80 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+        <a href="#top" className="flex shrink-0 items-center gap-2.5" aria-label={shop.name}>
+          <span className="grid h-9 w-9 place-items-center rounded-lg border border-neon-pink/50 bg-neon-pink/10 font-display text-xl leading-none text-neon-pink shadow-neon-pink">
+            D
+          </span>
+          <span className="hidden font-display text-2xl leading-none tracking-wide text-white sm:block">
+            Avond<span className="text-neon-pink">winkel</span>
+          </span>
+        </a>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6 list-none m-0 p-0">
+        <ul className="hidden items-center gap-7 text-sm font-medium text-white/70 md:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <Link
-                href={l.href}
-                className="text-sm text-paper/60 hover:text-paper transition-colors duration-200"
-              >
+              <a href={l.href} className="transition-colors hover:text-white">
                 {l.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 cursor-pointer"
-          onClick={() => setOpen(!open)}
-          aria-expanded={open}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={`block w-6 h-px bg-paper transition-all duration-200 ${open ? "rotate-45 translate-y-1.5" : ""}`}
-          />
-          <span
-            className={`block w-6 h-px bg-paper transition-all duration-200 ${open ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block w-6 h-px bg-paper transition-all duration-200 ${open ? "-rotate-45 -translate-y-2" : ""}`}
-          />
-        </button>
+        <div className="flex items-center gap-3">
+          <div className="hidden lg:block">
+            <OpenStatus />
+          </div>
+          <a
+            href={shop.phoneHref}
+            className="inline-flex items-center gap-2 rounded-full bg-neon-pink px-4 py-2 text-sm font-bold text-white shadow-neon-pink transition-transform hover:scale-105"
+          >
+            <PhoneIcon />
+            <span className="hidden sm:inline">Bel ons</span>
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="grid h-9 w-9 place-items-center rounded-lg border border-white/15 text-white md:hidden"
+            aria-label="Menu"
+            aria-expanded={open}
+          >
+            <span className="text-lg leading-none">{open ? "✕" : "☰"}</span>
+          </button>
+        </div>
       </nav>
 
-      {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden bg-ink-soft border-t border-paper/10">
-          <ul className="flex flex-col list-none m-0 p-0">
+        <div className="border-t border-white/10 bg-night px-4 py-3 md:hidden">
+          <ul className="flex flex-col gap-1">
             {links.map((l) => (
               <li key={l.href}>
-                <Link
+                <a
                   href={l.href}
-                  className="block px-5 py-3 text-paper/80 hover:text-paper border-b border-paper/5 transition-colors duration-200"
                   onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2.5 text-white/80 hover:bg-white/5 hover:text-white"
                 >
                   {l.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
+          <div className="mt-3 px-3">
+            <OpenStatus />
+          </div>
         </div>
       )}
     </header>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M6.5 3h3l1.5 4-2 1.5a12 12 0 006 6l1.5-2 4 1.5v3a2 2 0 01-2 2A16 16 0 015 6a2 2 0 011.5-3z"
+        fill="currentColor"
+      />
+    </svg>
   );
 }
